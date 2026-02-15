@@ -39,11 +39,12 @@ const Activities: React.FC = () => {
   };
 
   return (
-    <section id="activities" className="py-20 bg-white">
+    <section id="activities" className="py-20 bg-gradient-to-b from-white to-primary-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">活動報告</h2>
-          <p className="text-lg text-gray-600">スタジオの最新情報をお届けします</p>
+          <h2 className="text-5xl font-bold text-accent-800 mb-4">活動報告</h2>
+          <p className="text-xl text-accent-600">スタジオの最新情報をお届けします</p>
+          <div className="w-24 h-1 bg-neonpink-500 mx-auto mt-6 rounded-full"></div>
         </div>
 
         <div className="max-w-4xl mx-auto">

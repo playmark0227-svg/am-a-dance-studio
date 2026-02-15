@@ -3,11 +3,12 @@ import { priceData } from '../data/prices';
 
 const Price: React.FC = () => {
   return (
-    <section id="price" className="py-20 bg-gray-50">
+    <section id="price" className="py-20 bg-gradient-to-b from-primary-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">料金システム</h2>
-          <p className="text-lg text-gray-600">月謝制でわかりやすい料金設定</p>
+          <h2 className="text-5xl font-bold text-accent-800 mb-4">料金システム</h2>
+          <p className="text-xl text-accent-600">月謝制でわかりやすい料金設定</p>
+          <div className="w-24 h-1 bg-neonpink-500 mx-auto mt-6 rounded-full"></div>
         </div>
 
         <div className="max-w-5xl mx-auto">

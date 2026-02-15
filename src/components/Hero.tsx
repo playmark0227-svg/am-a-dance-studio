@@ -64,44 +64,54 @@ const Hero: React.FC = () => {
       </div>
 
       {/* インストラクター紹介セクション */}
-      <div className="bg-white py-12 md:py-16">
+      <div className="bg-gradient-to-b from-primary-50 to-white py-16 md:py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white border border-accent-200 rounded-md shadow-md p-8 md:p-10">
-              <div className="relative mb-6">
-                <div className="bg-neonpink-400 border border-accent-800 rounded-md shadow-sm px-6 py-3 inline-block">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white">
-                    インストラクター：RIKO
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-accent-800 mb-4">インストラクター紹介</h2>
+            <div className="w-24 h-1 bg-neonpink-500 mx-auto mt-6 rounded-full"></div>
+          </div>
+          <div className="max-w-5xl mx-auto">
+            <div className="bg-white border-2 border-primary-200 rounded-2xl shadow-xl p-8 md:p-12 hover:shadow-2xl transition-shadow">
+              <div className="text-center mb-8">
+                <div className="bg-gradient-to-r from-neonpink-400 to-neonpink-500 rounded-xl shadow-lg px-8 py-4 inline-block mb-4">
+                  <h3 className="text-3xl md:text-4xl font-bold text-white">
+                    RIKO
                   </h3>
                 </div>
-                <p className="text-accent-700 font-semibold mt-3 text-lg">主宰・チーフインストラクター</p>
+                <p className="text-accent-800 font-bold text-xl">主宰・チーフインストラクター</p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-3 text-accent-700">
-                  <div className="flex items-start space-x-2">
-                    <span className="text-neonpink-500 mt-1 font-bold text-lg">✓</span>
-                    <p>JCDAチアダンス指導者ライセンス保持</p>
-                  </div>
-                  <div className="flex items-start space-x-2">
-                    <span className="text-neonpink-500 mt-1 font-bold text-lg">✓</span>
-                    <p>元プロチアリーダーとして活躍</p>
-                  </div>
-                  <div className="flex items-start space-x-2">
-                    <span className="text-neonpink-500 mt-1 font-bold text-lg">✓</span>
-                    <p>バトントワリング全国大会出場</p>
-                  </div>
-                  <div className="flex items-start space-x-2">
-                    <span className="text-neonpink-500 mt-1 font-bold text-lg">✓</span>
-                    <p>豊富な指導経験で、初心者から上級者まで丁寧に指導</p>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  <h4 className="text-xl font-bold text-accent-800 mb-4 border-b-2 border-neonpink-300 pb-2">資格・経歴</h4>
+                  <div className="space-y-3 text-accent-700">
+                    <div className="flex items-start space-x-3 bg-primary-50 p-3 rounded-lg">
+                      <span className="text-neonpink-500 mt-1 font-bold text-xl">✓</span>
+                      <p className="font-medium">JCDAチアダンス指導者ライセンス保持</p>
+                    </div>
+                    <div className="flex items-start space-x-3 bg-primary-50 p-3 rounded-lg">
+                      <span className="text-neonpink-500 mt-1 font-bold text-xl">✓</span>
+                      <p className="font-medium">元プロチアリーダーとして活躍</p>
+                    </div>
+                    <div className="flex items-start space-x-3 bg-primary-50 p-3 rounded-lg">
+                      <span className="text-neonpink-500 mt-1 font-bold text-xl">✓</span>
+                      <p className="font-medium">バトントワリング全国大会出場</p>
+                    </div>
+                    <div className="flex items-start space-x-3 bg-primary-50 p-3 rounded-lg">
+                      <span className="text-neonpink-500 mt-1 font-bold text-xl">✓</span>
+                      <p className="font-medium">豊富な指導経験で、初心者から上級者まで丁寧に指導</p>
+                    </div>
                   </div>
                 </div>
 
                 <div>
-                  <p className="text-accent-600 leading-relaxed">
-                    「ダンスの楽しさを一人でも多くの方に」という思いで、子どもから大人まで、
-                    それぞれの目標に合わせた指導を行っています。安心して楽しく踊れる環境づくりを大切にしています。
-                  </p>
+                  <h4 className="text-xl font-bold text-accent-800 mb-4 border-b-2 border-neonpink-300 pb-2">メッセージ</h4>
+                  <div className="bg-gradient-to-br from-primary-50 to-primary-100 p-6 rounded-xl">
+                    <p className="text-accent-700 leading-relaxed text-lg">
+                      「ダンスの楽しさを一人でも多くの方に」という思いで、子どもから大人まで、
+                      それぞれの目標に合わせた指導を行っています。安心して楽しく踊れる環境づくりを大切にしています。
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

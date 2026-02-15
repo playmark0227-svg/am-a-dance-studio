@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { classesData } from '../data/classes';
 import type { ClassInfo } from '../types';
 
@@ -6,11 +7,12 @@ const Classes: React.FC = () => {
   const [selectedClass, setSelectedClass] = useState<ClassInfo>(classesData[0]);
 
   return (
-    <section id="classes" className="py-20 bg-white">
+    <section id="classes" className="py-20 bg-gradient-to-b from-primary-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-accent-800 mb-4">クラス紹介</h2>
-          <p className="text-lg text-accent-600">全14クラスから、あなたに合ったクラスを見つけてください</p>
+          <h2 className="text-5xl font-bold text-accent-800 mb-4">クラス紹介</h2>
+          <p className="text-xl text-accent-600">全14クラスから、あなたに合ったクラスを見つけてください</p>
+          <div className="w-24 h-1 bg-neonpink-500 mx-auto mt-6 rounded-full"></div>
         </div>
 
         <div className="max-w-6xl mx-auto">
@@ -93,14 +95,12 @@ const Classes: React.FC = () => {
                 )}
 
                 <div className="pt-4">
-                  <button
-                    onClick={() => {
-                      document.getElementById('schedule')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="bg-neonpink-500 text-white px-8 py-3 rounded-md font-semibold hover:bg-neonpink-600 transition-colors shadow-md"
+                  <Link
+                    to="/schedule"
+                    className="bg-neonpink-500 text-white px-8 py-3 rounded-md font-semibold hover:bg-neonpink-600 transition-colors shadow-md inline-block"
                   >
                     スケジュールを見る
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

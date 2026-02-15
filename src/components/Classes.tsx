@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { classesData } from '../data/classes';
-import { ClassInfo } from '../types';
+import type { ClassInfo } from '../types';
 
 const Classes: React.FC = () => {
   const [selectedClass, setSelectedClass] = useState<ClassInfo>(classesData[0]);

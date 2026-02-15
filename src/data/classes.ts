@@ -1,4 +1,4 @@
-import { ClassInfo } from '../types';
+import type { ClassInfo } from '../types';
 
 export const classesData: ClassInfo[] = [
   {

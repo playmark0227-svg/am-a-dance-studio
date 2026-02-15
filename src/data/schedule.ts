@@ -1,4 +1,4 @@
-import { DaySchedule } from '../types';
+import type { DaySchedule } from '../types';
 
 export const scheduleData: DaySchedule[] = [
   {
@@ -27,7 +27,6 @@ export const scheduleData: DaySchedule[] = [
         time: '17:30-18:00',
         className: '体操',
         location: 'あすぱる',
-        duration: '30分',
       },
       {
         time: '18:15-19:15',

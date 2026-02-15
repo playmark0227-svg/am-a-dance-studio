@@ -1,4 +1,4 @@
-import { PriceInfo } from '../types';
+import type { PriceInfo } from '../types';
 
 export const priceData: PriceInfo[] = [
   {

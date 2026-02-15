@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ActivityReport } from '../types';
+import type { ActivityReport } from '../types';
 
 // サンプルデータ（実際にはAPIや管理画面から取得）
 const sampleActivities: ActivityReport[] = [

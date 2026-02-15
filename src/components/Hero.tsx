@@ -5,9 +5,9 @@ const Hero: React.FC = () => {
     <section id="home" className="pt-16 bg-black">
       {/* ヒーロービジュアル - 画像を背景にしてテキストをオーバーレイ */}
       <div className="relative w-full min-h-[500px] md:min-h-[600px] flex items-center">
-        {/* 背景画像 */}
+        {/* 背景画像 - 全体表示（切り取りなし） */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-contain bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(/hero-image.jpg)' }}
         >
           {/* 暗めのオーバーレイ */}

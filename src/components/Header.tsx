@@ -12,22 +12,22 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="bg-white shadow-md fixed w-full top-0 z-50">
-      <nav className="container mx-auto px-4 py-4">
+    <header className="bg-primary-300 shadow-sm fixed w-full top-0 z-50">
+      <nav className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           {/* ロゴ */}
           <div className="flex items-center space-x-2">
-            <h1 className="text-2xl md:text-3xl font-bold text-primary-600">
-              am a <span className="text-gray-700">DANCE STUDIO</span>
+            <h1 className="text-xl md:text-2xl font-bold text-accent-800">
+              am a DANCE STUDIO
             </h1>
           </div>
 
           {/* デスクトップメニュー */}
-          <ul className="hidden md:flex space-x-8">
+          <ul className="hidden md:flex space-x-6">
             <li>
               <button
                 onClick={() => scrollToSection('home')}
-                className="text-gray-700 hover:text-primary-600 transition-colors"
+                className="text-accent-800 hover:text-accent-900 transition-colors font-medium"
               >
                 ホーム
               </button>
@@ -35,7 +35,7 @@ const Header: React.FC = () => {
             <li>
               <button
                 onClick={() => scrollToSection('classes')}
-                className="text-gray-700 hover:text-primary-600 transition-colors"
+                className="text-accent-800 hover:text-accent-900 transition-colors font-medium"
               >
                 クラス紹介
               </button>
@@ -43,7 +43,7 @@ const Header: React.FC = () => {
             <li>
               <button
                 onClick={() => scrollToSection('schedule')}
-                className="text-gray-700 hover:text-primary-600 transition-colors"
+                className="text-accent-800 hover:text-accent-900 transition-colors font-medium"
               >
                 スケジュール
               </button>
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
             <li>
               <button
                 onClick={() => scrollToSection('price')}
-                className="text-gray-700 hover:text-primary-600 transition-colors"
+                className="text-accent-800 hover:text-accent-900 transition-colors font-medium"
               >
                 料金
               </button>
@@ -59,7 +59,7 @@ const Header: React.FC = () => {
             <li>
               <button
                 onClick={() => scrollToSection('activities')}
-                className="text-gray-700 hover:text-primary-600 transition-colors"
+                className="text-accent-800 hover:text-accent-900 transition-colors font-medium"
               >
                 活動報告
               </button>
@@ -67,7 +67,7 @@ const Header: React.FC = () => {
             <li>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="bg-primary-600 text-white px-6 py-2 rounded-full hover:bg-primary-700 transition-colors"
+                className="bg-secondary-300 text-accent-800 px-6 py-2 rounded-md hover:bg-secondary-400 transition-colors font-medium border border-accent-800"
               >
                 体験申込
               </button>
@@ -76,7 +76,7 @@ const Header: React.FC = () => {
 
           {/* モバイルメニューボタン */}
           <button
-            className="md:hidden text-gray-700 focus:outline-none"
+            className="md:hidden text-accent-800 focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <svg
@@ -106,12 +106,12 @@ const Header: React.FC = () => {
 
         {/* モバイルメニュー */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4">
-            <ul className="space-y-4">
+          <div className="md:hidden mt-4 pb-4 bg-white/90 rounded-md">
+            <ul className="space-y-3 p-4">
               <li>
                 <button
                   onClick={() => scrollToSection('home')}
-                  className="block w-full text-left text-gray-700 hover:text-primary-600 transition-colors"
+                  className="block w-full text-center text-accent-800 hover:text-accent-900 transition-colors font-medium py-2"
                 >
                   ホーム
                 </button>
@@ -119,7 +119,7 @@ const Header: React.FC = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('classes')}
-                  className="block w-full text-left text-gray-700 hover:text-primary-600 transition-colors"
+                  className="block w-full text-center text-accent-800 hover:text-accent-900 transition-colors font-medium py-2"
                 >
                   クラス紹介
                 </button>
@@ -127,7 +127,7 @@ const Header: React.FC = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('schedule')}
-                  className="block w-full text-left text-gray-700 hover:text-primary-600 transition-colors"
+                  className="block w-full text-center text-accent-800 hover:text-accent-900 transition-colors font-medium py-2"
                 >
                   スケジュール
                 </button>
@@ -135,7 +135,7 @@ const Header: React.FC = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('price')}
-                  className="block w-full text-left text-gray-700 hover:text-primary-600 transition-colors"
+                  className="block w-full text-center text-accent-800 hover:text-accent-900 transition-colors font-medium py-2"
                 >
                   料金
                 </button>
@@ -143,7 +143,7 @@ const Header: React.FC = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('activities')}
-                  className="block w-full text-left text-gray-700 hover:text-primary-600 transition-colors"
+                  className="block w-full text-center text-accent-800 hover:text-accent-900 transition-colors font-medium py-2"
                 >
                   活動報告
                 </button>
@@ -151,7 +151,7 @@ const Header: React.FC = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="block w-full text-left bg-primary-600 text-white px-6 py-2 rounded-full hover:bg-primary-700 transition-colors"
+                  className="block w-full text-center bg-secondary-300 text-accent-800 px-6 py-2 rounded-md hover:bg-secondary-400 transition-colors font-medium border border-accent-800"
                 >
                   体験申込
                 </button>

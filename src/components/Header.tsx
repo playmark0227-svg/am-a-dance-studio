@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   return (
@@ -25,52 +22,52 @@ const Header: React.FC = () => {
           {/* デスクトップメニュー */}
           <ul className="hidden md:flex space-x-6">
             <li>
-              <button
-                onClick={() => scrollToSection('home')}
+              <Link
+                to="/"
                 className="text-accent-800 hover:text-accent-900 transition-colors font-medium"
               >
                 ホーム
-              </button>
+              </Link>
             </li>
             <li>
-              <button
-                onClick={() => scrollToSection('classes')}
+              <Link
+                to="/classes"
                 className="text-accent-800 hover:text-accent-900 transition-colors font-medium"
               >
                 クラス紹介
-              </button>
+              </Link>
             </li>
             <li>
-              <button
-                onClick={() => scrollToSection('schedule')}
+              <Link
+                to="/schedule"
                 className="text-accent-800 hover:text-accent-900 transition-colors font-medium"
               >
                 スケジュール
-              </button>
+              </Link>
             </li>
             <li>
-              <button
-                onClick={() => scrollToSection('price')}
+              <Link
+                to="/price"
                 className="text-accent-800 hover:text-accent-900 transition-colors font-medium"
               >
                 料金
-              </button>
+              </Link>
             </li>
             <li>
-              <button
-                onClick={() => scrollToSection('activities')}
+              <Link
+                to="/activities"
                 className="text-accent-800 hover:text-accent-900 transition-colors font-medium"
               >
                 活動報告
-              </button>
+              </Link>
             </li>
             <li>
-              <button
-                onClick={() => scrollToSection('contact')}
+              <Link
+                to="/contact"
                 className="bg-neonpink-500 text-white px-6 py-2 rounded-md hover:bg-neonpink-600 transition-colors font-medium shadow-md"
               >
                 体験申込
-              </button>
+              </Link>
             </li>
           </ul>
 
@@ -109,52 +106,58 @@ const Header: React.FC = () => {
           <div className="md:hidden mt-4 pb-4 bg-white/90 rounded-md">
             <ul className="space-y-3 p-4">
               <li>
-                <button
-                  onClick={() => scrollToSection('home')}
+                <Link
+                  to="/"
+                  onClick={closeMenu}
                   className="block w-full text-center text-accent-800 hover:text-accent-900 transition-colors font-medium py-2"
                 >
                   ホーム
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection('classes')}
+                <Link
+                  to="/classes"
+                  onClick={closeMenu}
                   className="block w-full text-center text-accent-800 hover:text-accent-900 transition-colors font-medium py-2"
                 >
                   クラス紹介
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection('schedule')}
+                <Link
+                  to="/schedule"
+                  onClick={closeMenu}
                   className="block w-full text-center text-accent-800 hover:text-accent-900 transition-colors font-medium py-2"
                 >
                   スケジュール
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection('price')}
+                <Link
+                  to="/price"
+                  onClick={closeMenu}
                   className="block w-full text-center text-accent-800 hover:text-accent-900 transition-colors font-medium py-2"
                 >
                   料金
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection('activities')}
+                <Link
+                  to="/activities"
+                  onClick={closeMenu}
                   className="block w-full text-center text-accent-800 hover:text-accent-900 transition-colors font-medium py-2"
                 >
                   活動報告
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection('contact')}
+                <Link
+                  to="/contact"
+                  onClick={closeMenu}
                   className="block w-full text-center bg-neonpink-500 text-white px-6 py-2 rounded-md hover:bg-neonpink-600 transition-colors font-medium shadow-md"
                 >
                   体験申込
-                </button>
+                </Link>
               </li>
             </ul>
           </div>

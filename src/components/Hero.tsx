@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
   return (
@@ -44,22 +45,18 @@ const Hero: React.FC = () => {
                 多彩なダンスプログラムで楽しく踊ろう
               </p>
               <div className="flex flex-row gap-4">
-                <button
-                  onClick={() => {
-                    document.getElementById('classes')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="bg-neonpink-500 text-white px-10 py-4 rounded-md font-bold text-lg hover:bg-neonpink-600 transition-colors shadow-lg"
+                <Link
+                  to="/classes"
+                  className="bg-neonpink-500 text-white px-10 py-4 rounded-md font-bold text-lg hover:bg-neonpink-600 transition-colors shadow-lg inline-block text-center"
                 >
                   クラスを見る
-                </button>
-                <button
-                  onClick={() => {
-                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="bg-white/90 text-accent-800 px-10 py-4 rounded-md font-bold text-lg hover:bg-white transition-colors shadow-lg"
+                </Link>
+                <Link
+                  to="/contact"
+                  className="bg-white/90 text-accent-800 px-10 py-4 rounded-md font-bold text-lg hover:bg-white transition-colors shadow-lg inline-block text-center"
                 >
                   体験申込
-                </button>
+                </Link>
               </div>
             </div>
           </div>

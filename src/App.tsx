@@ -1,26 +1,31 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import Classes from './components/Classes';
-import Schedule from './components/Schedule';
-import Price from './components/Price';
-import Activities from './components/Activities';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import ClassesPage from './pages/ClassesPage';
+import SchedulePage from './pages/SchedulePage';
+import PricePage from './pages/PricePage';
+import ActivitiesPage from './pages/ActivitiesPage';
+import ContactPage from './pages/ContactPage';
 
 function App() {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <main>
-        <Hero />
-        <Classes />
-        <Schedule />
-        <Price />
-        <Activities />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/classes" element={<ClassesPage />} />
+            <Route path="/schedule" element={<SchedulePage />} />
+            <Route path="/price" element={<PricePage />} />
+            <Route path="/activities" element={<ActivitiesPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

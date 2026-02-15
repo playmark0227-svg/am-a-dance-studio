@@ -4,26 +4,65 @@ const Hero: React.FC = () => {
   return (
     <section id="home" className="bg-white">
       {/* ヒーロー画像表示（スマホとデスクトップで画像を切り替え） */}
-      <div style={{ backgroundColor: '#1a1a1a' }}>
-        {/* スマホ用画像 (md未満) */}
-        <div className="md:hidden relative w-full min-h-[400px]" style={{ backgroundColor: '#1a1a1a' }}>
+      
+      {/* スマホ用画像 (md未満) - テキストなし */}
+      <div className="md:hidden" style={{ backgroundColor: '#1a1a1a' }}>
+        <div className="relative w-full min-h-[400px]" style={{ backgroundColor: '#1a1a1a' }}>
           <div 
             className="absolute inset-0 bg-contain bg-center bg-no-repeat"
             style={{ backgroundImage: 'url(/hero-image-mobile.jpg)', backgroundColor: '#1a1a1a' }}
           ></div>
         </div>
-        
-        {/* デスクトップ用画像 (md以上) */}
-        <div className="hidden md:block relative w-full min-h-[600px]" style={{ backgroundColor: '#1a1a1a' }}>
+      </div>
+      
+      {/* デスクトップ用画像 (md以上) - テキストオーバーレイあり */}
+      <div className="hidden md:block pt-16" style={{ backgroundColor: '#1a1a1a' }}>
+        <div className="relative w-full min-h-[600px] flex items-center" style={{ backgroundColor: '#1a1a1a' }}>
+          {/* 背景画像 */}
           <div 
             className="absolute inset-0 bg-contain bg-center bg-no-repeat"
-            style={{ backgroundImage: 'url(/hero-image.jpg)', backgroundColor: '#1a1a1a' }}
+            style={{ backgroundImage: 'url(/hero-image-desktop.jpg)', backgroundColor: '#1a1a1a' }}
           ></div>
           
           {/* スモーク効果 */}
           <div className="absolute inset-0 pointer-events-none" style={{
             background: 'linear-gradient(to right, #1a1a1a 0%, transparent 15%, transparent 85%, #1a1a1a 100%)'
           }}></div>
+
+          {/* コンテンツ */}
+          <div className="container mx-auto px-4 py-16 relative z-10">
+            <div className="max-w-xl">
+              <h1 className="text-7xl font-bold text-white mb-4 leading-tight">
+                am a
+                <span className="block">DANCE STUDIO</span>
+              </h1>
+              <p className="text-2xl text-white/90 mb-8 font-medium">
+                アムア ダンススタジオ
+              </p>
+              <p className="text-xl text-white/80 mb-8 leading-relaxed">
+                チアダンス・バトントワリング・K-POP・ジャズなど、<br />
+                多彩なダンスプログラムで楽しく踊ろう
+              </p>
+              <div className="flex flex-row gap-4">
+                <button
+                  onClick={() => {
+                    document.getElementById('classes')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="bg-neonpink-500 text-white px-10 py-4 rounded-md font-bold text-lg hover:bg-neonpink-600 transition-colors shadow-lg"
+                >
+                  クラスを見る
+                </button>
+                <button
+                  onClick={() => {
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="bg-white/90 text-accent-800 px-10 py-4 rounded-md font-bold text-lg hover:bg-white transition-colors shadow-lg"
+                >
+                  体験申込
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

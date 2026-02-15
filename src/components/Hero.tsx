@@ -5,14 +5,11 @@ const Hero: React.FC = () => {
     <section id="home" className="pt-16 bg-black">
       {/* ヒーロービジュアル - 画像を背景にしてテキストをオーバーレイ */}
       <div className="relative w-full min-h-[500px] md:min-h-[600px] flex items-center">
-        {/* 背景画像 - 全体表示（切り取りなし） */}
+        {/* 背景画像 - 全体表示（切り取りなし、オーバーレイなし） */}
         <div 
           className="absolute inset-0 bg-contain bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(/hero-image.jpg)' }}
-        >
-          {/* 暗めのオーバーレイ */}
-          <div className="absolute inset-0 bg-black/40"></div>
-        </div>
+        ></div>
 
         {/* コンテンツ */}
         <div className="container mx-auto px-4 py-16 relative z-10">

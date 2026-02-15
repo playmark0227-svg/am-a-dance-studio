@@ -3,17 +3,25 @@ import React from 'react';
 const Hero: React.FC = () => {
   return (
     <section id="home" className="bg-white">
-      {/* ヒーロー画像のみ表示（テキストなし） */}
+      {/* ヒーロー画像表示（スマホとデスクトップで画像を切り替え） */}
       <div style={{ backgroundColor: '#1a1a1a' }}>
-        {/* 画像エリア */}
-        <div className="relative w-full min-h-[400px] md:min-h-[600px]" style={{ backgroundColor: '#1a1a1a' }}>
+        {/* スマホ用画像 (md未満) */}
+        <div className="md:hidden relative w-full min-h-[400px]" style={{ backgroundColor: '#1a1a1a' }}>
+          <div 
+            className="absolute inset-0 bg-contain bg-center bg-no-repeat"
+            style={{ backgroundImage: 'url(/hero-image-mobile.jpg)', backgroundColor: '#1a1a1a' }}
+          ></div>
+        </div>
+        
+        {/* デスクトップ用画像 (md以上) */}
+        <div className="hidden md:block relative w-full min-h-[600px]" style={{ backgroundColor: '#1a1a1a' }}>
           <div 
             className="absolute inset-0 bg-contain bg-center bg-no-repeat"
             style={{ backgroundImage: 'url(/hero-image.jpg)', backgroundColor: '#1a1a1a' }}
           ></div>
           
-          {/* デスクトップのみスモーク効果 */}
-          <div className="hidden md:block absolute inset-0 pointer-events-none" style={{
+          {/* スモーク効果 */}
+          <div className="absolute inset-0 pointer-events-none" style={{
             background: 'linear-gradient(to right, #1a1a1a 0%, transparent 15%, transparent 85%, #1a1a1a 100%)'
           }}></div>
         </div>

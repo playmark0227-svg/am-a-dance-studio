@@ -6,11 +6,11 @@ const Classes: React.FC = () => {
   const [selectedClass, setSelectedClass] = useState<ClassInfo>(classesData[0]);
 
   return (
-    <section id="classes" className="py-20 bg-gray-50">
+    <section id="classes" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">クラス紹介</h2>
-          <p className="text-lg text-gray-600">全14クラスから、あなたに合ったクラスを見つけてください</p>
+          <h2 className="text-4xl font-bold text-accent-800 mb-4">クラス紹介</h2>
+          <p className="text-lg text-accent-600">全14クラスから、あなたに合ったクラスを見つけてください</p>
         </div>
 
         <div className="max-w-6xl mx-auto">
@@ -21,10 +21,10 @@ const Classes: React.FC = () => {
                 <button
                   key={classInfo.id}
                   onClick={() => setSelectedClass(classInfo)}
-                  className={`px-4 py-2 rounded-full font-semibold transition-all whitespace-nowrap ${
+                  className={`px-4 py-2 rounded-md font-semibold transition-all whitespace-nowrap border ${
                     selectedClass.id === classInfo.id
-                      ? 'bg-primary-600 text-white shadow-lg scale-105'
-                      : 'bg-white text-gray-700 hover:bg-primary-50 hover:text-primary-600'
+                      ? 'bg-neonpink-500 text-white shadow-md scale-105 border-neonpink-500'
+                      : 'bg-white text-accent-700 hover:bg-primary-50 hover:text-accent-900 border-accent-300'
                   }`}
                 >
                   {classInfo.nameEn}
@@ -34,12 +34,12 @@ const Classes: React.FC = () => {
           </div>
 
           {/* クラス詳細表示 */}
-          <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12">
+          <div className="bg-white rounded-md shadow-md p-8 md:p-12 border border-accent-200">
             <div className="grid md:grid-cols-2 gap-8">
               {/* 画像プレースホルダー */}
               <div className="order-2 md:order-1">
-                <div className="aspect-video bg-gradient-to-br from-primary-100 to-primary-300 rounded-2xl shadow-lg flex items-center justify-center">
-                  <div className="text-center text-primary-700">
+                <div className="aspect-video bg-gradient-to-br from-primary-100 to-primary-300 rounded-md shadow-sm flex items-center justify-center border border-accent-800">
+                  <div className="text-center text-accent-700">
                     <svg
                       className="w-20 h-20 mx-auto"
                       fill="none"
@@ -61,31 +61,31 @@ const Classes: React.FC = () => {
               {/* クラス情報 */}
               <div className="order-1 md:order-2 space-y-6">
                 <div>
-                  <h3 className="text-3xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-3xl font-bold text-accent-800 mb-2">
                     {selectedClass.name}
                   </h3>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="bg-primary-100 text-primary-700 px-4 py-1 rounded-full text-sm font-semibold">
+                    <span className="bg-neonpink-100 text-neonpink-700 px-4 py-1 rounded-md text-sm font-semibold border border-neonpink-300">
                       {selectedClass.targetAge}
                     </span>
                     {selectedClass.duration && (
-                      <span className="bg-secondary-100 text-secondary-700 px-4 py-1 rounded-full text-sm font-semibold">
+                      <span className="bg-primary-100 text-primary-700 px-4 py-1 rounded-md text-sm font-semibold border border-primary-300">
                         {selectedClass.duration}
                       </span>
                     )}
                   </div>
                 </div>
 
-                <p className="text-gray-600 leading-relaxed">{selectedClass.description}</p>
+                <p className="text-accent-600 leading-relaxed">{selectedClass.description}</p>
 
                 {selectedClass.features && selectedClass.features.length > 0 && (
                   <div>
-                    <h4 className="font-bold text-gray-900 mb-3">クラスの特徴</h4>
+                    <h4 className="font-bold text-accent-800 mb-3">クラスの特徴</h4>
                     <ul className="space-y-2">
                       {selectedClass.features.map((feature, index) => (
                         <li key={index} className="flex items-start space-x-2">
-                          <span className="text-primary-600 mt-1">✓</span>
-                          <span className="text-gray-700">{feature}</span>
+                          <span className="text-neonpink-500 mt-1 font-bold">✓</span>
+                          <span className="text-accent-700">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -97,7 +97,7 @@ const Classes: React.FC = () => {
                     onClick={() => {
                       document.getElementById('schedule')?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="bg-primary-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-primary-700 transition-colors shadow-lg"
+                    className="bg-neonpink-500 text-white px-8 py-3 rounded-md font-semibold hover:bg-neonpink-600 transition-colors shadow-md"
                   >
                     スケジュールを見る
                   </button>

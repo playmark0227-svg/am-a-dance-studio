@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
                 onClick={() => {
                   document.getElementById('classes')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="bg-secondary-300 text-accent-800 px-8 py-3 rounded-md font-semibold hover:bg-secondary-400 transition-colors border border-accent-800 shadow-sm"
+                className="bg-neonpink-500 text-white px-8 py-3 rounded-md font-semibold hover:bg-neonpink-600 transition-colors shadow-md"
               >
                 クラスを見る
               </button>
@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
                 onClick={() => {
                   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="border-2 border-accent-500 text-accent-800 px-8 py-3 rounded-md font-semibold hover:bg-accent-50 transition-colors"
+                className="border-2 border-primary-400 text-accent-800 px-8 py-3 rounded-md font-semibold hover:bg-primary-50 transition-colors"
               >
                 体験申込
               </button>
@@ -94,8 +94,8 @@ const Hero: React.FC = () => {
             {/* インストラクタープロフィール */}
             <div className="md:col-span-2 space-y-4">
               <div className="relative">
-                <div className="bg-secondary-300 border border-accent-800 rounded-md shadow-sm px-4 py-2 inline-block">
-                  <h3 className="text-2xl font-bold text-accent-800">
+                <div className="bg-neonpink-400 border border-accent-800 rounded-md shadow-sm px-4 py-2 inline-block">
+                  <h3 className="text-2xl font-bold text-white">
                     インストラクター：RIKO
                   </h3>
                 </div>
@@ -105,19 +105,19 @@ const Hero: React.FC = () => {
               <div className="bg-white border border-accent-800 rounded-md shadow-sm p-6">
                 <div className="space-y-3 text-accent-700 text-sm">
                   <div className="flex items-start space-x-2">
-                    <span className="text-secondary-500 mt-1">✓</span>
+                    <span className="text-neonpink-500 mt-1 font-bold">✓</span>
                     <p>JCDAチアダンス指導者ライセンス保持</p>
                   </div>
                   <div className="flex items-start space-x-2">
-                    <span className="text-secondary-500 mt-1">✓</span>
+                    <span className="text-neonpink-500 mt-1 font-bold">✓</span>
                     <p>元プロチアリーダーとして活躍</p>
                   </div>
                   <div className="flex items-start space-x-2">
-                    <span className="text-secondary-500 mt-1">✓</span>
+                    <span className="text-neonpink-500 mt-1 font-bold">✓</span>
                     <p>バトントワリング全国大会出場</p>
                   </div>
                   <div className="flex items-start space-x-2">
-                    <span className="text-secondary-500 mt-1">✓</span>
+                    <span className="text-neonpink-500 mt-1 font-bold">✓</span>
                     <p>豊富な指導経験で、初心者から上級者まで丁寧に指導</p>
                   </div>
                 </div>

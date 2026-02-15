@@ -67,7 +67,7 @@ const Header: React.FC = () => {
             <li>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="bg-secondary-300 text-accent-800 px-6 py-2 rounded-md hover:bg-secondary-400 transition-colors font-medium border border-accent-800"
+                className="bg-neonpink-500 text-white px-6 py-2 rounded-md hover:bg-neonpink-600 transition-colors font-medium shadow-md"
               >
                 体験申込
               </button>
@@ -151,7 +151,7 @@ const Header: React.FC = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="block w-full text-center bg-secondary-300 text-accent-800 px-6 py-2 rounded-md hover:bg-secondary-400 transition-colors font-medium border border-accent-800"
+                  className="block w-full text-center bg-neonpink-500 text-white px-6 py-2 rounded-md hover:bg-neonpink-600 transition-colors font-medium shadow-md"
                 >
                   体験申込
                 </button>

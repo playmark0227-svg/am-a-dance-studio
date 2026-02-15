@@ -229,7 +229,7 @@ const Contact: React.FC = () => {
               <div className="text-center">
                 <button
                   type="submit"
-                  className="bg-primary-600 text-white px-12 py-4 rounded-full font-bold text-lg hover:bg-primary-700 transition-colors shadow-lg hover:shadow-xl"
+                  className="bg-neonpink-500 text-white px-12 py-4 rounded-md font-bold text-lg hover:bg-neonpink-600 transition-colors shadow-md hover:shadow-lg"
                 >
                   体験を申し込む
                 </button>
@@ -238,12 +238,12 @@ const Contact: React.FC = () => {
           </div>
 
           {/* グッズ販売案内 */}
-          <div className="mt-12 bg-gradient-to-r from-primary-50 to-secondary-50 rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">スタジオオリジナルグッズ</h3>
-            <p className="text-gray-700 mb-6">
+          <div className="mt-12 bg-gradient-to-r from-primary-50 to-primary-100 rounded-md p-8 text-center border border-accent-200">
+            <h3 className="text-2xl font-bold text-accent-800 mb-4">スタジオオリジナルグッズ</h3>
+            <p className="text-accent-700 mb-6">
               スタジオロゴ入りTシャツやバッグなど、オリジナルグッズを販売しています。
             </p>
-            <button className="border-2 border-primary-600 text-primary-600 px-8 py-3 rounded-full font-semibold hover:bg-primary-50 transition-colors">
+            <button className="border-2 border-neonpink-500 text-neonpink-600 px-8 py-3 rounded-md font-semibold hover:bg-neonpink-50 transition-colors">
               グッズを見る
             </button>
           </div>

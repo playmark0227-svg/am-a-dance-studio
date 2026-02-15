@@ -104,20 +104,32 @@ const Hero: React.FC = () => {
                       </h4>
                       <div className="space-y-3 text-accent-700">
                         <div className="flex items-start space-x-3 bg-gradient-to-r from-primary-50 to-transparent p-4 rounded-lg border-l-4 border-neonpink-400">
-                          <span className="text-neonpink-500 mt-1 font-bold text-xl flex-shrink-0">✓</span>
-                          <p className="font-medium text-lg">JCDAチアダンス指導者ライセンス保持</p>
+                          <span className="text-neonpink-500 mt-1 font-bold text-xl flex-shrink-0">❤︎</span>
+                          <p className="font-medium text-lg">JCDAチアダンス指導者ライセンスAdvance取得</p>
                         </div>
                         <div className="flex items-start space-x-3 bg-gradient-to-r from-primary-50 to-transparent p-4 rounded-lg border-l-4 border-neonpink-400">
-                          <span className="text-neonpink-500 mt-1 font-bold text-xl flex-shrink-0">✓</span>
-                          <p className="font-medium text-lg">元プロチアリーダーとして活躍</p>
+                          <span className="text-neonpink-500 mt-1 font-bold text-xl flex-shrink-0">❤︎</span>
+                          <p className="font-medium text-lg">プロバスケットボールチーム元専属チアリーダー</p>
                         </div>
                         <div className="flex items-start space-x-3 bg-gradient-to-r from-primary-50 to-transparent p-4 rounded-lg border-l-4 border-neonpink-400">
-                          <span className="text-neonpink-500 mt-1 font-bold text-xl flex-shrink-0">✓</span>
+                          <span className="text-neonpink-500 mt-1 font-bold text-xl flex-shrink-0">❤︎</span>
+                          <p className="font-medium text-lg">バトントワリング北海道大会1位</p>
+                        </div>
+                        <div className="flex items-start space-x-3 bg-gradient-to-r from-primary-50 to-transparent p-4 rounded-lg border-l-4 border-neonpink-400">
+                          <span className="text-neonpink-500 mt-1 font-bold text-xl flex-shrink-0">❤︎</span>
                           <p className="font-medium text-lg">バトントワリング全国大会出場</p>
                         </div>
                         <div className="flex items-start space-x-3 bg-gradient-to-r from-primary-50 to-transparent p-4 rounded-lg border-l-4 border-neonpink-400">
-                          <span className="text-neonpink-500 mt-1 font-bold text-xl flex-shrink-0">✓</span>
-                          <p className="font-medium text-lg">豊富な指導経験で、初心者から上級者まで丁寧に指導</p>
+                          <span className="text-neonpink-500 mt-1 font-bold text-xl flex-shrink-0">❤︎</span>
+                          <p className="font-medium text-lg">全米ヨガアライアンス認定資格 RYT200 取得</p>
+                        </div>
+                        <div className="flex items-start space-x-3 bg-gradient-to-r from-primary-50 to-transparent p-4 rounded-lg border-l-4 border-neonpink-400">
+                          <span className="text-neonpink-500 mt-1 font-bold text-xl flex-shrink-0">❤︎</span>
+                          <p className="font-medium text-lg">スポーツジムでのダンスクラス指導</p>
+                        </div>
+                        <div className="flex items-start space-x-3 bg-gradient-to-r from-primary-50 to-transparent p-4 rounded-lg border-l-4 border-neonpink-400">
+                          <span className="text-neonpink-500 mt-1 font-bold text-xl flex-shrink-0">❤︎</span>
+                          <p className="font-medium text-lg">他団体での指導歴多数あり</p>
                         </div>
                       </div>
                     </div>

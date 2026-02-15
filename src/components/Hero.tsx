@@ -3,99 +3,19 @@ import React from 'react';
 const Hero: React.FC = () => {
   return (
     <section id="home" className="bg-white">
-      {/* スマホ：画像を上、文字を下 / デスクトップ：画像に文字をオーバーレイ */}
-      
-      {/* スマホ表示用レイアウト (md未満) */}
-      <div className="md:hidden" style={{ backgroundColor: '#1a1a1a' }}>
+      {/* ヒーロー画像のみ表示（テキストなし） */}
+      <div style={{ backgroundColor: '#1a1a1a' }}>
         {/* 画像エリア */}
-        <div className="relative w-full min-h-[400px]" style={{ backgroundColor: '#1a1a1a' }}>
-          <div 
-            className="absolute inset-0 bg-contain bg-center bg-no-repeat"
-            style={{ backgroundImage: 'url(/hero-image.jpg)', backgroundColor: '#1a1a1a' }}
-          ></div>
-        </div>
-        
-        {/* テキストエリア */}
-        <div className="px-4 py-8" style={{ backgroundColor: '#1a1a1a' }}>
-          <h1 className="text-4xl font-bold text-white mb-3 leading-tight">
-            am a
-            <span className="block">DANCE STUDIO</span>
-          </h1>
-          <p className="text-lg text-white/90 mb-6 font-medium">
-            アムア ダンススタジオ
-          </p>
-          <p className="text-base text-white/80 mb-6 leading-relaxed">
-            チアダンス・バトントワリング・K-POP・ジャズなど、多彩なダンスプログラムで楽しく踊ろう
-          </p>
-          <div className="flex flex-col gap-3">
-            <button
-              onClick={() => {
-                document.getElementById('classes')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="bg-neonpink-500 text-white px-8 py-3 rounded-md font-bold text-base hover:bg-neonpink-600 transition-colors shadow-lg"
-            >
-              クラスを見る
-            </button>
-            <button
-              onClick={() => {
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="bg-white/90 text-accent-800 px-8 py-3 rounded-md font-bold text-base hover:bg-white transition-colors shadow-lg"
-            >
-              体験申込
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* デスクトップ表示用レイアウト (md以上) */}
-      <div className="hidden md:block pt-16" style={{ backgroundColor: '#1a1a1a' }}>
-        <div className="relative w-full min-h-[600px] flex items-center" style={{ backgroundColor: '#1a1a1a' }}>
-          {/* 背景画像 */}
+        <div className="relative w-full min-h-[400px] md:min-h-[600px]" style={{ backgroundColor: '#1a1a1a' }}>
           <div 
             className="absolute inset-0 bg-contain bg-center bg-no-repeat"
             style={{ backgroundImage: 'url(/hero-image.jpg)', backgroundColor: '#1a1a1a' }}
           ></div>
           
-          {/* スモーク効果 */}
-          <div className="absolute inset-0 pointer-events-none" style={{
+          {/* デスクトップのみスモーク効果 */}
+          <div className="hidden md:block absolute inset-0 pointer-events-none" style={{
             background: 'linear-gradient(to right, #1a1a1a 0%, transparent 15%, transparent 85%, #1a1a1a 100%)'
           }}></div>
-
-          {/* コンテンツ */}
-          <div className="container mx-auto px-4 py-16 relative z-10">
-            <div className="max-w-xl">
-              <h1 className="text-7xl font-bold text-white mb-4 leading-tight">
-                am a
-                <span className="block">DANCE STUDIO</span>
-              </h1>
-              <p className="text-2xl text-white/90 mb-8 font-medium">
-                アムア ダンススタジオ
-              </p>
-              <p className="text-xl text-white/80 mb-8 leading-relaxed">
-                チアダンス・バトントワリング・K-POP・ジャズなど、<br />
-                多彩なダンスプログラムで楽しく踊ろう
-              </p>
-              <div className="flex flex-row gap-4">
-                <button
-                  onClick={() => {
-                    document.getElementById('classes')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="bg-neonpink-500 text-white px-10 py-4 rounded-md font-bold text-lg hover:bg-neonpink-600 transition-colors shadow-lg"
-                >
-                  クラスを見る
-                </button>
-                <button
-                  onClick={() => {
-                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="bg-white/90 text-accent-800 px-10 py-4 rounded-md font-bold text-lg hover:bg-white transition-colors shadow-lg"
-                >
-                  体験申込
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 

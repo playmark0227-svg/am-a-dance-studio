@@ -2,13 +2,13 @@ import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <section id="home" className="pt-16 bg-black">
+    <section id="home" className="pt-16" style={{ backgroundColor: '#1a1a1a' }}>
       {/* ヒーロービジュアル - 画像を背景にしてテキストをオーバーレイ */}
-      <div className="relative w-full min-h-[500px] md:min-h-[600px] flex items-center">
+      <div className="relative w-full min-h-[500px] md:min-h-[600px] flex items-center" style={{ backgroundColor: '#1a1a1a' }}>
         {/* 背景画像 - 全体表示（切り取りなし、オーバーレイなし） */}
         <div 
           className="absolute inset-0 bg-contain bg-center bg-no-repeat"
-          style={{ backgroundImage: 'url(/hero-image.jpg)' }}
+          style={{ backgroundImage: 'url(/hero-image.jpg)', backgroundColor: '#1a1a1a' }}
         ></div>
 
         {/* コンテンツ */}

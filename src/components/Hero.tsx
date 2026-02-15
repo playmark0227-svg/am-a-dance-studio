@@ -10,6 +10,11 @@ const Hero: React.FC = () => {
           className="absolute inset-0 bg-contain bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(/hero-image.jpg)', backgroundColor: '#1a1a1a' }}
         ></div>
+        
+        {/* 左右のスモーク効果（グラデーション） */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: 'linear-gradient(to right, #1a1a1a 0%, transparent 15%, transparent 85%, #1a1a1a 100%)'
+        }}></div>
 
         {/* コンテンツ */}
         <div className="container mx-auto px-4 py-16 relative z-10">

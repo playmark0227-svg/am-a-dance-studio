@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import type { ActivityReport } from '../types';
 
 // サンプルデータ（実際にはAPIや管理画面から取得）
@@ -46,29 +45,6 @@ const Activities: React.FC = () => {
           <h2 className="text-5xl font-bold text-accent-800 mb-4">活動報告</h2>
           <p className="text-xl text-accent-600">スタジオの最新情報をお届けします</p>
           <div className="w-24 h-1 bg-neonpink-500 mx-auto mt-6 rounded-full"></div>
-        </div>
-
-        {/* 投稿ボタン */}
-        <div className="max-w-4xl mx-auto mb-8">
-          <Link
-            to="/activities/post"
-            className="inline-flex items-center gap-2 bg-neonpink-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-neonpink-600 transition-colors shadow-lg"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 4v16m8-8H4"
-              />
-            </svg>
-            新しい活動報告を投稿
-          </Link>
         </div>
 
         <div className="max-w-4xl mx-auto">

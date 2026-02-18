@@ -1,10 +1,28 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { classesData } from '../data/classes';
 import type { ClassInfo } from '../types';
 
 const Classes: React.FC = () => {
-  const [selectedClass, setSelectedClass] = useState<ClassInfo>(classesData[0]);
+  const [searchParams] = useSearchParams();
+  const classId = searchParams.get('class');
+  
+  // URLパラメータからクラスを選択、なければ最初のクラス
+  const initialClass = classId 
+    ? classesData.find(c => c.id === classId) || classesData[0]
+    : classesData[0];
+  
+  const [selectedClass, setSelectedClass] = useState<ClassInfo>(initialClass);
+  
+  // URLパラメータが変更されたときに選択を更新
+  useEffect(() => {
+    if (classId) {
+      const foundClass = classesData.find(c => c.id === classId);
+      if (foundClass) {
+        setSelectedClass(foundClass);
+      }
+    }
+  }, [classId]);
 
   return (
     <section id="classes" className="py-20 bg-gradient-to-b from-primary-50 to-white">

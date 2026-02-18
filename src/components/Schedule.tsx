@@ -1,8 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { scheduleData } from '../data/schedule';
+import { scheduleData, classNameToId } from '../data/schedule';
 
 const Schedule: React.FC = () => {
+  // クラス名からURLを生成するヘルパー関数
+  const getClassUrl = (className: string): string => {
+    const classId = classNameToId[className];
+    return classId ? `/classes?class=${classId}` : '/classes';
+  };
   return (
     <section id="schedule" className="py-20 bg-gradient-to-b from-white to-primary-50">
       <div className="container mx-auto px-4">
@@ -30,7 +35,7 @@ const Schedule: React.FC = () => {
                         // 週替わりクラスは2分割表示
                         <div className="space-y-2">
                           {/* 第1・3週 */}
-                          <Link to="/classes" className="block">
+                          <Link to={getClassUrl(classItem.className)} className="block">
                             <div className="bg-gradient-to-r from-pink-50 to-pink-100 rounded-xl p-3 shadow-sm border-l-4 border-pink-500 hover:shadow-md transition-all cursor-pointer">
                               <div className="text-xs text-pink-700 font-bold mb-1">第1・3週</div>
                               <p className="text-xs font-bold text-pink-600 mb-1">{classItem.time}</p>
@@ -38,7 +43,7 @@ const Schedule: React.FC = () => {
                             </div>
                           </Link>
                           {/* 第2・4週 */}
-                          <Link to="/classes" className="block">
+                          <Link to={getClassUrl(classItem.alternateClass || '')} className="block">
                             <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl p-3 shadow-sm border-l-4 border-purple-500 hover:shadow-md transition-all cursor-pointer">
                               <div className="text-xs text-purple-700 font-bold mb-1">第2・4週</div>
                               <p className="text-xs font-bold text-purple-600 mb-1">{classItem.alternateTime || classItem.time}</p>
@@ -48,7 +53,7 @@ const Schedule: React.FC = () => {
                         </div>
                       ) : (
                         // 通常クラスは1つ
-                        <Link to="/classes" className="block">
+                        <Link to={getClassUrl(classItem.className)} className="block">
                           <div className="bg-gray-50 rounded-xl p-4 shadow-sm hover:shadow-md transition-all cursor-pointer">
                             <div className="text-center">
                               <p className="text-sm font-bold text-primary-600 mb-2">{classItem.time}</p>
@@ -82,7 +87,7 @@ const Schedule: React.FC = () => {
                       // 週替わりクラスは2分割表示
                       <div className="space-y-2">
                         {/* 第1・3週 */}
-                        <Link to="/classes" className="block">
+                        <Link to={getClassUrl(classItem.className)} className="block">
                           <div className="bg-gradient-to-r from-pink-50 to-pink-100 rounded-xl p-4 shadow-sm border-l-4 border-pink-500 hover:shadow-md transition-all cursor-pointer">
                             <div className="text-xs text-pink-700 font-bold mb-1">第1・3週</div>
                             <p className="text-sm font-bold text-pink-600 mb-1">{classItem.time}</p>
@@ -90,7 +95,7 @@ const Schedule: React.FC = () => {
                           </div>
                         </Link>
                         {/* 第2・4週 */}
-                        <Link to="/classes" className="block">
+                        <Link to={getClassUrl(classItem.alternateClass || '')} className="block">
                           <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl p-4 shadow-sm border-l-4 border-purple-500 hover:shadow-md transition-all cursor-pointer">
                             <div className="text-xs text-purple-700 font-bold mb-1">第2・4週</div>
                             <p className="text-sm font-bold text-purple-600 mb-1">{classItem.alternateTime || classItem.time}</p>
@@ -100,7 +105,7 @@ const Schedule: React.FC = () => {
                       </div>
                     ) : (
                       // 通常クラスは1つ
-                      <Link to="/classes" className="block">
+                      <Link to={getClassUrl(classItem.className)} className="block">
                         <div className="bg-gray-50 rounded-xl p-4 shadow-sm hover:shadow-md transition-all cursor-pointer">
                           <p className="text-sm font-bold text-primary-600 mb-1">{classItem.time}</p>
                           <p className="font-semibold text-gray-900 hover:text-primary-600 transition-colors">{classItem.className}</p>

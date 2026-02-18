@@ -1,5 +1,23 @@
 import type { DaySchedule } from '../types';
 
+// クラス名からクラスIDへのマッピング
+export const classNameToId: { [key: string]: string } = {
+  'CHEER DANCE 一般': 'cheer-dance-general',
+  'CHEER DANCE skill up': 'cheer-dance-skillup',
+  'JAZZ': 'jazz',
+  'BATON beginner': 'baton-beginner',
+  'BATON': 'baton',
+  'KPOP beginner': 'kpop-beginner',
+  'KPOP': 'kpop',
+  'GIRLS beginner': 'girls-beginner',
+  'GIRLS': 'girls',
+  'HIMARI Freestyle': 'himari-freestyle',
+  '体操': 'gymnastics',
+  'OVER 20': 'over20',
+  'TONE UP': 'toneup',
+  'ゆったりYOGA': 'yoga',
+};
+
 export const scheduleData: DaySchedule[] = [
   {
     day: '月曜日',

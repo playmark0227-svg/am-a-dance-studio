@@ -46,14 +46,25 @@ const Activities: React.FC = () => {
     const fetchActivities = async () => {
       try {
         const fetchedActivities = await getActivities();
-        setActivities(fetchedActivities);
-        
-        // いいね数を初期化
-        const likesData: Record<string, number> = {};
-        fetchedActivities.forEach(activity => {
-          likesData[activity.id] = activity.likes || 0;
-        });
-        setLikes(likesData);
+        if (fetchedActivities.length > 0) {
+          setActivities(fetchedActivities);
+          
+          // いいね数を初期化
+          const likesData: Record<string, number> = {};
+          fetchedActivities.forEach(activity => {
+            likesData[activity.id] = activity.likes || 0;
+          });
+          setLikes(likesData);
+        } else {
+          // Firebaseにデータがない場合はサンプルデータを使用
+          setActivities(sampleActivities);
+          setLikes({
+            '1': 12,
+            '2': 8,
+            '3': 15,
+            '4': 10,
+          });
+        }
         
         setIsLoading(false);
       } catch (error) {

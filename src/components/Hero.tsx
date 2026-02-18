@@ -70,7 +70,10 @@ const Hero: React.FC = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-accent-800 mb-4">インストラクター紹介</h2>
             <div className="w-24 h-1 bg-neonpink-500 mx-auto mt-6 rounded-full"></div>
           </div>
-          <div className="max-w-6xl mx-auto">
+          
+          {/* インストラクターカードのグリッド */}
+          <div className="max-w-6xl mx-auto space-y-8">
+            {/* RIKO先生 */}
             <div className="bg-white border-2 border-primary-200 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
               <div className="grid md:grid-cols-5 gap-0">
                 {/* 写真エリア */}
@@ -144,6 +147,79 @@ const Hero: React.FC = () => {
                         <p className="text-accent-700 leading-relaxed text-lg">
                           「ダンスの楽しさを一人でも多くの方に」という思いで、子どもから大人まで、
                           それぞれの目標に合わせた指導を行っています。安心して楽しく踊れる環境づくりを大切にしています。
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 2人目のインストラクター */}
+            <div className="bg-white border-2 border-primary-200 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
+              <div className="grid md:grid-cols-5 gap-0">
+                {/* 写真エリア */}
+                <div className="md:col-span-2 relative">
+                  <div className="aspect-[3/4] md:aspect-auto md:h-full">
+                    <img 
+                      src="/instructor-2.jpg" 
+                      alt="インストラクター"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  {/* 写真上の名前バッジ */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                    <div className="bg-gradient-to-r from-purple-400 to-purple-500 rounded-xl shadow-lg px-6 py-3 inline-block">
+                      <h3 className="text-3xl md:text-4xl font-bold text-white">
+                        HIMARI
+                      </h3>
+                    </div>
+                    <p className="text-white font-bold text-lg mt-2">インストラクター</p>
+                  </div>
+                </div>
+
+                {/* 情報エリア */}
+                <div className="md:col-span-3 p-8 md:p-10">
+                  <div className="space-y-6">
+                    {/* 資格・経歴 */}
+                    <div>
+                      <h4 className="text-2xl font-bold text-accent-800 mb-4 flex items-center">
+                        <span className="w-1 h-8 bg-purple-500 mr-3 rounded-full"></span>
+                        経歴
+                      </h4>
+                      <div className="space-y-3 text-accent-700">
+                        <div className="flex items-start space-x-3 bg-gradient-to-r from-purple-50 to-transparent p-4 rounded-lg border-l-4 border-purple-400">
+                          <span className="text-purple-500 mt-1 font-bold text-xl flex-shrink-0">⭐</span>
+                          <p className="font-medium text-lg">学生時代からam a DANCE STUDIOで学ぶ</p>
+                        </div>
+                        <div className="flex items-start space-x-3 bg-gradient-to-r from-purple-50 to-transparent p-4 rounded-lg border-l-4 border-purple-400">
+                          <span className="text-purple-500 mt-1 font-bold text-xl flex-shrink-0">⭐</span>
+                          <p className="font-medium text-lg">ダンスの魅力に魅了され、卒業後もダンスを続ける</p>
+                        </div>
+                        <div className="flex items-start space-x-3 bg-gradient-to-r from-purple-50 to-transparent p-4 rounded-lg border-l-4 border-purple-400">
+                          <span className="text-purple-500 mt-1 font-bold text-xl flex-shrink-0">⭐</span>
+                          <p className="font-medium text-lg">2024年よりam a DANCE STUDIOでインストラクターとして活動開始</p>
+                        </div>
+                        <div className="flex items-start space-x-3 bg-gradient-to-r from-purple-50 to-transparent p-4 rounded-lg border-l-4 border-purple-400">
+                          <span className="text-purple-500 mt-1 font-bold text-xl flex-shrink-0">⭐</span>
+                          <p className="font-medium text-lg">HIMARI Freestyleクラスを担当</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* メッセージ */}
+                    <div>
+                      <h4 className="text-2xl font-bold text-accent-800 mb-4 flex items-center">
+                        <span className="w-1 h-8 bg-purple-500 mr-3 rounded-full"></span>
+                        メッセージ
+                      </h4>
+                      <div className="bg-gradient-to-br from-purple-50 to-primary-50 p-6 rounded-xl border-2 border-purple-200">
+                        <p className="text-accent-700 leading-relaxed text-lg">
+                          学生の頃からこのスタジオでダンスを学び、その楽しさと素晴らしさを知りました。
+                          卒業後、「自分もダンスの楽しさを多くの人に伝えたい」という強い思いから、
+                          インストラクターとしてam a DANCE STUDIOで働くことを決意しました。
+                          ダンスを通じて、笑顔と自信を持てる仲間を増やしていきたいと思っています。
+                          一緒に楽しく踊りましょう！
                         </p>
                       </div>
                     </div>

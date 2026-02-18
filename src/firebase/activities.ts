@@ -10,7 +10,7 @@ import {
   Timestamp 
 } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db, storage } from './config';
+import { db, storage, isFirebaseConfigured } from './config';
 import type { ActivityReport } from '../types';
 
 // コレクション名
@@ -24,6 +24,10 @@ export const createActivity = async (
   description: string,
   images: File[]
 ): Promise<string> => {
+  if (!isFirebaseConfigured || !db || !storage) {
+    throw new Error('Firebase is not configured. Please set up Firebase credentials.');
+  }
+
   try {
     // 画像をアップロード
     const imageUrls: string[] = [];
@@ -63,6 +67,10 @@ export const createActivity = async (
  * 活動報告一覧を取得
  */
 export const getActivities = async (): Promise<ActivityReport[]> => {
+  if (!isFirebaseConfigured || !db) {
+    throw new Error('Firebase is not configured');
+  }
+
   try {
     const q = query(
       collection(db, ACTIVITIES_COLLECTION),
@@ -95,6 +103,10 @@ export const getActivities = async (): Promise<ActivityReport[]> => {
  * いいねを追加
  */
 export const likeActivity = async (activityId: string): Promise<void> => {
+  if (!isFirebaseConfigured || !db) {
+    throw new Error('Firebase is not configured');
+  }
+
   try {
     const activityRef = doc(db, ACTIVITIES_COLLECTION, activityId);
     await updateDoc(activityRef, {
@@ -110,6 +122,10 @@ export const likeActivity = async (activityId: string): Promise<void> => {
  * いいねを解除
  */
 export const unlikeActivity = async (activityId: string): Promise<void> => {
+  if (!isFirebaseConfigured || !db) {
+    throw new Error('Firebase is not configured');
+  }
+
   try {
     const activityRef = doc(db, ACTIVITIES_COLLECTION, activityId);
     await updateDoc(activityRef, {

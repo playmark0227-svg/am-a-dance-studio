@@ -74,6 +74,14 @@ export const classesData: ClassInfo[] = [
     features: ['トレンド振付', '個性を活かす', 'ステージ出演'],
   },
   {
+    id: 'over20',
+    name: 'OVER 20 DANCE',
+    nameEn: 'OVER 20 DANCE',
+    targetAge: '20歳以上',
+    description: '大人のためのダンスクラスです。初心者の方も経験者の方も、楽しく体を動かせます。',
+    features: ['初心者歓迎', '健康づくり', 'ストレス解消'],
+  },
+  {
     id: 'himari-freestyle',
     name: 'HIMARI Freestyle',
     nameEn: 'HIMARI Freestyle',
@@ -89,14 +97,6 @@ export const classesData: ClassInfo[] = [
     duration: '30分',
     description: '体の柔軟性とバランス感覚を育む体操クラスです。マット運動や基本的な体操技術を学びます。',
     features: ['柔軟性向上', 'バランス感覚', '基礎体力づくり'],
-  },
-  {
-    id: 'over20',
-    name: 'OVER 20 DANCE',
-    nameEn: 'OVER 20 DANCE',
-    targetAge: '20歳以上',
-    description: '大人のためのダンスクラスです。初心者の方も経験者の方も、楽しく体を動かせます。',
-    features: ['初心者歓迎', '健康づくり', 'ストレス解消'],
   },
   {
     id: 'toneup',

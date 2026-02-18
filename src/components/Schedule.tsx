@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { scheduleData } from '../data/schedule';
 
 const Schedule: React.FC = () => {
@@ -29,26 +30,32 @@ const Schedule: React.FC = () => {
                         // 週替わりクラスは2分割表示
                         <div className="space-y-2">
                           {/* 第1・3週 */}
-                          <div className="bg-gradient-to-r from-pink-50 to-pink-100 rounded-xl p-3 shadow-sm border-l-4 border-pink-500">
-                            <div className="text-xs text-pink-700 font-bold mb-1">第1・3週</div>
-                            <p className="text-xs font-bold text-pink-600 mb-1">{classItem.time}</p>
-                            <p className="font-semibold text-gray-900 text-sm">{classItem.className}</p>
-                          </div>
+                          <Link to="/classes" className="block">
+                            <div className="bg-gradient-to-r from-pink-50 to-pink-100 rounded-xl p-3 shadow-sm border-l-4 border-pink-500 hover:shadow-md transition-all cursor-pointer">
+                              <div className="text-xs text-pink-700 font-bold mb-1">第1・3週</div>
+                              <p className="text-xs font-bold text-pink-600 mb-1">{classItem.time}</p>
+                              <p className="font-semibold text-gray-900 text-sm hover:text-primary-600 transition-colors">{classItem.className}</p>
+                            </div>
+                          </Link>
                           {/* 第2・4週 */}
-                          <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl p-3 shadow-sm border-l-4 border-purple-500">
-                            <div className="text-xs text-purple-700 font-bold mb-1">第2・4週</div>
-                            <p className="text-xs font-bold text-purple-600 mb-1">{classItem.time}</p>
-                            <p className="font-semibold text-gray-900 text-sm">{classItem.alternateClass}</p>
-                          </div>
+                          <Link to="/classes" className="block">
+                            <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl p-3 shadow-sm border-l-4 border-purple-500 hover:shadow-md transition-all cursor-pointer">
+                              <div className="text-xs text-purple-700 font-bold mb-1">第2・4週</div>
+                              <p className="text-xs font-bold text-purple-600 mb-1">{classItem.alternateTime || classItem.time}</p>
+                              <p className="font-semibold text-gray-900 text-sm hover:text-primary-600 transition-colors">{classItem.alternateClass}</p>
+                            </div>
+                          </Link>
                         </div>
                       ) : (
                         // 通常クラスは1つ
-                        <div className="bg-gray-50 rounded-xl p-4 shadow-sm hover:shadow-md transition-all">
-                          <div className="text-center">
-                            <p className="text-sm font-bold text-primary-600 mb-2">{classItem.time}</p>
-                            <p className="font-semibold text-gray-900">{classItem.className}</p>
+                        <Link to="/classes" className="block">
+                          <div className="bg-gray-50 rounded-xl p-4 shadow-sm hover:shadow-md transition-all cursor-pointer">
+                            <div className="text-center">
+                              <p className="text-sm font-bold text-primary-600 mb-2">{classItem.time}</p>
+                              <p className="font-semibold text-gray-900 hover:text-primary-600 transition-colors">{classItem.className}</p>
+                            </div>
                           </div>
-                        </div>
+                        </Link>
                       )}
                     </div>
                   ))}
@@ -75,24 +82,30 @@ const Schedule: React.FC = () => {
                       // 週替わりクラスは2分割表示
                       <div className="space-y-2">
                         {/* 第1・3週 */}
-                        <div className="bg-gradient-to-r from-pink-50 to-pink-100 rounded-xl p-4 shadow-sm border-l-4 border-pink-500">
-                          <div className="text-xs text-pink-700 font-bold mb-1">第1・3週</div>
-                          <p className="text-sm font-bold text-pink-600 mb-1">{classItem.time}</p>
-                          <p className="font-semibold text-gray-900">{classItem.className}</p>
-                        </div>
+                        <Link to="/classes" className="block">
+                          <div className="bg-gradient-to-r from-pink-50 to-pink-100 rounded-xl p-4 shadow-sm border-l-4 border-pink-500 hover:shadow-md transition-all cursor-pointer">
+                            <div className="text-xs text-pink-700 font-bold mb-1">第1・3週</div>
+                            <p className="text-sm font-bold text-pink-600 mb-1">{classItem.time}</p>
+                            <p className="font-semibold text-gray-900 hover:text-primary-600 transition-colors">{classItem.className}</p>
+                          </div>
+                        </Link>
                         {/* 第2・4週 */}
-                        <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl p-4 shadow-sm border-l-4 border-purple-500">
-                          <div className="text-xs text-purple-700 font-bold mb-1">第2・4週</div>
-                          <p className="text-sm font-bold text-purple-600 mb-1">{classItem.time}</p>
-                          <p className="font-semibold text-gray-900">{classItem.alternateClass}</p>
-                        </div>
+                        <Link to="/classes" className="block">
+                          <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl p-4 shadow-sm border-l-4 border-purple-500 hover:shadow-md transition-all cursor-pointer">
+                            <div className="text-xs text-purple-700 font-bold mb-1">第2・4週</div>
+                            <p className="text-sm font-bold text-purple-600 mb-1">{classItem.alternateTime || classItem.time}</p>
+                            <p className="font-semibold text-gray-900 hover:text-primary-600 transition-colors">{classItem.alternateClass}</p>
+                          </div>
+                        </Link>
                       </div>
                     ) : (
                       // 通常クラスは1つ
-                      <div className="bg-gray-50 rounded-xl p-4 shadow-sm">
-                        <p className="text-sm font-bold text-primary-600 mb-1">{classItem.time}</p>
-                        <p className="font-semibold text-gray-900">{classItem.className}</p>
-                      </div>
+                      <Link to="/classes" className="block">
+                        <div className="bg-gray-50 rounded-xl p-4 shadow-sm hover:shadow-md transition-all cursor-pointer">
+                          <p className="text-sm font-bold text-primary-600 mb-1">{classItem.time}</p>
+                          <p className="font-semibold text-gray-900 hover:text-primary-600 transition-colors">{classItem.className}</p>
+                        </div>
+                      </Link>
                     )}
                   </div>
                 ))}
@@ -121,8 +134,8 @@ const Schedule: React.FC = () => {
               <h4 className="font-bold text-gray-900 mb-2">スケジュールについて</h4>
               <ul className="text-sm text-gray-800 space-y-1">
                 <li>• 木曜日17:30-18:30の枠は、週によってクラスが変わります</li>
-                <li>• 第1・3週：CHEER DANCE skill up（ピンク表示）</li>
-                <li>• 第2・4週：ゆったりYOGA（紫表示）</li>
+                <li>• 第1・3週：CHEER DANCE skill up（17:30-18:30）</li>
+                <li>• 第2・4週：ゆったりYOGA（17:45-18:15）</li>
                 <li>• 祝日や年末年始はスケジュールが変更になる場合があります</li>
               </ul>
             </div>

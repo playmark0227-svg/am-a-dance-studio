@@ -16,6 +16,7 @@ export interface ScheduleItem {
   location: string;
   isAlternating?: boolean;
   alternateClass?: string;
+  alternateTime?: string; // 週替わりクラスの異なる時間
   alternatePattern?: string;
 }
 

@@ -83,7 +83,8 @@ export const scheduleData: DaySchedule[] = [
         location: 'アイランドスタジオ',
         isAlternating: true,
         alternateClass: 'ゆったりYOGA',
-        alternatePattern: '第1・3週：CHEER DANCE skill up / 第2・4週：ゆったりYOGA',
+        alternateTime: '17:45-18:15',
+        alternatePattern: '第1・3週：CHEER DANCE skill up / 第2・4週：ゆったりYOGA（17:45-18:15）',
       },
       {
         time: '18:30-19:30',

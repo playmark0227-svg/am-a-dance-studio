@@ -42,6 +42,10 @@ export const priceData: PriceInfo[] = [
     monthlyFee: '¥6,000',
   },
   {
+    className: 'OVER 20 DANCE',
+    monthlyFee: '¥5,000',
+  },
+  {
     className: 'HIMARI Freestyle',
     monthlyFee: '¥3,000',
     note: 'お試し期間価格',
@@ -53,10 +57,6 @@ export const priceData: PriceInfo[] = [
   {
     className: 'TONE UP（exercise）',
     monthlyFee: '¥4,000',
-  },
-  {
-    className: 'OVER 20 DANCE',
-    monthlyFee: '¥5,000',
   },
   {
     className: 'ゆったりYOGA',

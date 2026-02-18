@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { scheduleData } from '../data/schedule';
 
 const Schedule: React.FC = () => {
+  const [selectedWeek, setSelectedWeek] = useState<'odd' | 'even'>('odd');
+
+  // 週ごとのクラスを取得
+  const getClassForWeek = (classItem: any, week: 'odd' | 'even') => {
+    if (!classItem.isAlternating) {
+      return classItem.className;
+    }
+    
+    if (week === 'odd') {
+      return classItem.className; // 第1・3週：CHEER DANCE skill up
+    } else {
+      return classItem.alternateClass; // 第2・4週：ゆったりYOGA
+    }
+  };
+
   return (
     <section id="schedule" className="py-20 bg-gradient-to-b from-white to-primary-50">
       <div className="container mx-auto px-4">
@@ -9,6 +24,32 @@ const Schedule: React.FC = () => {
           <h2 className="text-5xl font-bold text-accent-800 mb-4">レッスンスケジュール</h2>
           <p className="text-xl text-accent-600">週間タイムテーブル</p>
           <div className="w-24 h-1 bg-neonpink-500 mx-auto mt-6 rounded-full"></div>
+        </div>
+
+        {/* 週選択タブ */}
+        <div className="max-w-md mx-auto mb-8">
+          <div className="bg-white rounded-2xl shadow-lg p-2 flex gap-2">
+            <button
+              onClick={() => setSelectedWeek('odd')}
+              className={`flex-1 py-3 px-6 rounded-xl font-bold transition-all duration-200 ${
+                selectedWeek === 'odd'
+                  ? 'bg-primary text-white shadow-lg'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              }`}
+            >
+              第1・3週
+            </button>
+            <button
+              onClick={() => setSelectedWeek('even')}
+              className={`flex-1 py-3 px-6 rounded-xl font-bold transition-all duration-200 ${
+                selectedWeek === 'even'
+                  ? 'bg-primary text-white shadow-lg'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              }`}
+            >
+              第2・4週
+            </button>
+          </div>
         </div>
 
         {/* デスクトップビュー：横並び */}
@@ -26,21 +67,20 @@ const Schedule: React.FC = () => {
                   {day.classes.map((classItem, index) => (
                     <div
                       key={index}
-                      className={`bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow ${
-                        classItem.isAlternating ? 'border-2 border-yellow-400' : ''
+                      className={`bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-200 ${
+                        classItem.isAlternating ? 'border-2 border-yellow-400 relative' : ''
                       }`}
                     >
+                      {classItem.isAlternating && (
+                        <div className="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full shadow">
+                          週替わり
+                        </div>
+                      )}
                       <div className="text-center">
                         <p className="text-sm font-bold text-primary-600 mb-2">{classItem.time}</p>
-                        <p className="font-semibold text-gray-900">{classItem.className}</p>
-                        
-                        {classItem.isAlternating && classItem.alternatePattern && (
-                          <div className="mt-3 pt-3 border-t border-gray-200">
-                            <p className="text-xs text-gray-600 leading-relaxed">
-                              ※ {classItem.alternatePattern}
-                            </p>
-                          </div>
-                        )}
+                        <p className="font-semibold text-gray-900">
+                          {getClassForWeek(classItem, selectedWeek)}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -64,24 +104,23 @@ const Schedule: React.FC = () => {
                 {day.classes.map((classItem, index) => (
                   <div
                     key={index}
-                    className={`bg-white rounded-xl p-4 shadow-md ${
+                    className={`bg-white rounded-xl p-4 shadow-md relative ${
                       classItem.isAlternating ? 'border-2 border-yellow-400' : ''
                     }`}
                   >
+                    {classItem.isAlternating && (
+                      <div className="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full shadow">
+                        週替わり
+                      </div>
+                    )}
                     <div className="flex justify-between items-start">
                       <div className="flex-1">
                         <p className="text-sm font-bold text-primary-600 mb-1">{classItem.time}</p>
-                        <p className="font-semibold text-gray-900">{classItem.className}</p>
-                      </div>
-                    </div>
-                    
-                    {classItem.isAlternating && classItem.alternatePattern && (
-                      <div className="mt-3 pt-3 border-t border-gray-200">
-                        <p className="text-xs text-gray-600 leading-relaxed">
-                          ※ {classItem.alternatePattern}
+                        <p className="font-semibold text-gray-900">
+                          {getClassForWeek(classItem, selectedWeek)}
                         </p>
                       </div>
-                    )}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -111,6 +150,7 @@ const Schedule: React.FC = () => {
                 <li>• 木曜日17:30-18:30の枠は、週によってクラスが変わります</li>
                 <li>• 第1・3週：CHEER DANCE skill up</li>
                 <li>• 第2・4週：ゆったりYOGA</li>
+                <li>• 上のタブで週を切り替えてスケジュールを確認できます</li>
                 <li>• 祝日や年末年始はスケジュールが変更になる場合があります</li>
               </ul>
             </div>

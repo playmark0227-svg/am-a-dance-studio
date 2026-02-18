@@ -24,6 +24,13 @@ const sampleActivities: ActivityReport[] = [
     description: '地域のお祭りでチアダンスを披露しました。たくさんの方に見ていただき、子どもたちも大喜びでした。',
     images: [],
   },
+  {
+    id: '4',
+    date: '2025-12-20',
+    title: 'クリスマスパーティー',
+    description: '今年最後のレッスンはクリスマスパーティーで楽しく締めくくりました！',
+    images: [],
+  },
 ];
 
 const Activities: React.FC = () => {
@@ -47,24 +54,24 @@ const Activities: React.FC = () => {
           <div className="w-24 h-1 bg-neonpink-500 mx-auto mt-6 rounded-full"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          {/* 活動報告フィード */}
-          <div className="space-y-8">
+        <div className="max-w-7xl mx-auto">
+          {/* 活動報告グリッド（2カラム） */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {activities.map((activity) => (
               <article
                 key={activity.id}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
               >
-                {/* 画像エリア（実際の画像がある場合） */}
+                {/* 画像エリア（コンパクトに） */}
                 {activity.images && activity.images.length > 0 ? (
-                  <div className="aspect-video bg-gradient-to-br from-primary-100 to-primary-300">
+                  <div className="aspect-[16/9] bg-gradient-to-br from-primary-100 to-primary-300">
                     {/* 実際の画像をここに表示 */}
                   </div>
                 ) : (
-                  <div className="aspect-video bg-gradient-to-br from-primary-100 to-primary-300 flex items-center justify-center">
+                  <div className="aspect-[16/9] bg-gradient-to-br from-primary-100 to-primary-300 flex items-center justify-center">
                     <div className="text-center text-primary-700">
                       <svg
-                        className="w-16 h-16 mx-auto"
+                        className="w-12 h-12 mx-auto"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -76,16 +83,16 @@ const Activities: React.FC = () => {
                           d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
                         />
                       </svg>
-                      <p className="mt-2 text-sm">画像</p>
+                      <p className="mt-1 text-xs">画像</p>
                     </div>
                   </div>
                 )}
 
-                {/* コンテンツエリア */}
-                <div className="p-6 md:p-8">
-                  <div className="flex items-center text-sm text-gray-600 mb-3">
+                {/* コンテンツエリア（コンパクトに） */}
+                <div className="p-5 flex-1 flex flex-col">
+                  <div className="flex items-center text-xs text-gray-600 mb-2">
                     <svg
-                      className="w-5 h-5 mr-2"
+                      className="w-4 h-4 mr-1"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -100,13 +107,13 @@ const Activities: React.FC = () => {
                     <time dateTime={activity.date}>{formatDate(activity.date)}</time>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{activity.title}</h3>
-                  <p className="text-gray-700 leading-relaxed">{activity.description}</p>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">{activity.title}</h3>
+                  <p className="text-sm text-gray-700 leading-relaxed line-clamp-3 flex-1">{activity.description}</p>
 
-                  {/* SNS風のインタラクションボタン（将来の拡張用） */}
-                  <div className="mt-6 pt-6 border-t border-gray-200 flex items-center space-x-6 text-gray-500">
-                    <button className="flex items-center space-x-2 hover:text-primary-600 transition-colors">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {/* SNS風のインタラクションボタン（コンパクトに） */}
+                  <div className="mt-4 pt-4 border-t border-gray-200 flex items-center space-x-4 text-gray-500">
+                    <button className="flex items-center space-x-1 hover:text-primary-600 transition-colors text-sm">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -114,10 +121,10 @@ const Activities: React.FC = () => {
                           d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                         />
                       </svg>
-                      <span className="text-sm">いいね</span>
+                      <span className="text-xs">いいね</span>
                     </button>
-                    <button className="flex items-center space-x-2 hover:text-primary-600 transition-colors">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button className="flex items-center space-x-1 hover:text-primary-600 transition-colors text-sm">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -125,7 +132,10 @@ const Activities: React.FC = () => {
                           d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
                         />
                       </svg>
-                      <span className="text-sm">シェア</span>
+                      <span className="text-xs">シェア</span>
+                    </button>
+                    <button className="ml-auto text-primary-600 hover:text-primary-700 font-semibold text-xs transition-colors">
+                      詳細を見る →
                     </button>
                   </div>
                 </div>
@@ -133,7 +143,7 @@ const Activities: React.FC = () => {
             ))}
           </div>
 
-          {/* もっと見るボタン（将来の拡張用） */}
+          {/* もっと見るボタン */}
           <div className="text-center mt-12">
             <button className="border-2 border-primary-600 text-primary-600 px-8 py-3 rounded-full font-semibold hover:bg-primary-50 transition-colors">
               もっと見る

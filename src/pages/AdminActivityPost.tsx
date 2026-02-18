@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { createActivity } from '../firebase/activities';
 
 const AdminActivityPost: React.FC = () => {
   const navigate = useNavigate();
@@ -38,21 +39,32 @@ const AdminActivityPost: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // 投稿データをコンソールに出力（実際はAPIに送信）
-    console.log('投稿データ:', {
-      title: formData.title,
-      description: formData.description,
-      imageCount: formData.images.length,
-    });
+    try {
+      // Firebaseに投稿を保存
+      await createActivity(
+        formData.title,
+        formData.description,
+        formData.images
+      );
 
-    // 送信シミュレーション
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    setIsSubmitting(false);
-    alert('活動報告を投稿しました！\n実際のシステムではサーバーに保存されます。');
-
-    // ダッシュボードに戻る
-    navigate('/admin/dashboard');
+      alert('活動報告を投稿しました！');
+      
+      // フォームをリセット
+      setFormData({
+        title: '',
+        description: '',
+        images: [],
+      });
+      setPreviewUrls([]);
+      
+      // ダッシュボードに戻る
+      navigate('/admin/dashboard');
+    } catch (error) {
+      console.error('投稿エラー:', error);
+      alert('投稿に失敗しました。もう一度お試しください。\n\nFirebaseの設定を確認してください。');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const removeImage = (index: number) => {

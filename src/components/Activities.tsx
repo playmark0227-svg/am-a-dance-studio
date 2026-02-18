@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { ActivityReport } from '../types';
+import { getActivities, likeActivity, unlikeActivity } from '../firebase/activities';
 
 // サンプルデータ（実際にはAPIや管理画面から取得）
 const sampleActivities: ActivityReport[] = [
@@ -34,15 +35,43 @@ const sampleActivities: ActivityReport[] = [
 ];
 
 const Activities: React.FC = () => {
-  const [activities] = useState<ActivityReport[]>(sampleActivities);
-  const [likes, setLikes] = useState<Record<string, number>>({
-    '1': 12,
-    '2': 8,
-    '3': 15,
-    '4': 10,
-  });
+  const [activities, setActivities] = useState<ActivityReport[]>([]);
+  const [likes, setLikes] = useState<Record<string, number>>({});
   const [likedByUser, setLikedByUser] = useState<Record<string, boolean>>({});
   const [selectedActivity, setSelectedActivity] = useState<ActivityReport | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Firebaseから活動報告を取得
+  useEffect(() => {
+    const fetchActivities = async () => {
+      try {
+        const fetchedActivities = await getActivities();
+        setActivities(fetchedActivities);
+        
+        // いいね数を初期化
+        const likesData: Record<string, number> = {};
+        fetchedActivities.forEach(activity => {
+          likesData[activity.id] = activity.likes || 0;
+        });
+        setLikes(likesData);
+        
+        setIsLoading(false);
+      } catch (error) {
+        console.error('活動報告の取得エラー:', error);
+        // エラー時はサンプルデータを使用
+        setActivities(sampleActivities);
+        setLikes({
+          '1': 12,
+          '2': 8,
+          '3': 15,
+          '4': 10,
+        });
+        setIsLoading(false);
+      }
+    };
+
+    fetchActivities();
+  }, []);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -54,15 +83,29 @@ const Activities: React.FC = () => {
   };
 
   // いいねボタン処理
-  const handleLike = (activityId: string) => {
-    if (likedByUser[activityId]) {
-      // すでにいいね済み → いいね解除
-      setLikes(prev => ({ ...prev, [activityId]: prev[activityId] - 1 }));
-      setLikedByUser(prev => ({ ...prev, [activityId]: false }));
-    } else {
-      // いいねする
-      setLikes(prev => ({ ...prev, [activityId]: (prev[activityId] || 0) + 1 }));
-      setLikedByUser(prev => ({ ...prev, [activityId]: true }));
+  const handleLike = async (activityId: string) => {
+    try {
+      if (likedByUser[activityId]) {
+        // すでにいいね済み → いいね解除
+        await unlikeActivity(activityId);
+        setLikes(prev => ({ ...prev, [activityId]: prev[activityId] - 1 }));
+        setLikedByUser(prev => ({ ...prev, [activityId]: false }));
+      } else {
+        // いいねする
+        await likeActivity(activityId);
+        setLikes(prev => ({ ...prev, [activityId]: (prev[activityId] || 0) + 1 }));
+        setLikedByUser(prev => ({ ...prev, [activityId]: true }));
+      }
+    } catch (error) {
+      console.error('いいねエラー:', error);
+      // エラー時はローカルのみ更新（Firebaseが設定されていない場合）
+      if (likedByUser[activityId]) {
+        setLikes(prev => ({ ...prev, [activityId]: prev[activityId] - 1 }));
+        setLikedByUser(prev => ({ ...prev, [activityId]: false }));
+      } else {
+        setLikes(prev => ({ ...prev, [activityId]: (prev[activityId] || 0) + 1 }));
+        setLikedByUser(prev => ({ ...prev, [activityId]: true }));
+      }
     }
   };
 
@@ -88,6 +131,21 @@ const Activities: React.FC = () => {
         </div>
 
         <div className="max-w-7xl mx-auto">
+          {/* ローディング表示 */}
+          {isLoading ? (
+            <div className="flex justify-center items-center py-20">
+              <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-primary"></div>
+            </div>
+          ) : activities.length === 0 ? (
+            <div className="text-center py-20">
+              <svg className="w-24 h-24 mx-auto text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <p className="text-xl text-gray-500">まだ投稿がありません</p>
+              <p className="text-gray-400 mt-2">管理画面から投稿を作成してください</p>
+            </div>
+          ) : (
+            <>
           {/* 活動報告グリッド（2カラム） */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {activities.map((activity) => (
@@ -98,7 +156,11 @@ const Activities: React.FC = () => {
                 {/* 画像エリア（コンパクトに） */}
                 {activity.images && activity.images.length > 0 ? (
                   <div className="aspect-[16/9] bg-gradient-to-br from-primary-100 to-primary-300">
-                    {/* 実際の画像をここに表示 */}
+                    <img 
+                      src={activity.images[0]} 
+                      alt={activity.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 ) : (
                   <div className="aspect-[16/9] bg-gradient-to-br from-primary-100 to-primary-300 flex items-center justify-center">
@@ -197,6 +259,8 @@ const Activities: React.FC = () => {
               もっと見る
             </button>
           </div>
+            </>
+          )}
         </div>
       </div>
 
@@ -228,7 +292,11 @@ const Activities: React.FC = () => {
               {/* 画像エリア */}
               {selectedActivity.images && selectedActivity.images.length > 0 ? (
                 <div className="aspect-video bg-gradient-to-br from-primary-100 to-primary-300 rounded-xl mb-6">
-                  {/* 実際の画像をここに表示 */}
+                  <img 
+                    src={selectedActivity.images[0]} 
+                    alt={selectedActivity.title}
+                    className="w-full h-full object-cover rounded-xl"
+                  />
                 </div>
               ) : (
                 <div className="aspect-video bg-gradient-to-br from-primary-100 to-primary-300 rounded-xl mb-6 flex items-center justify-center">

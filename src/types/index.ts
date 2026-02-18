@@ -53,4 +53,5 @@ export interface ActivityReport {
   title: string;
   description: string;
   images: string[];
+  likes?: number;
 }

@@ -24,7 +24,69 @@ am a DANCE STUDIO（アムア ダンススタジオ）の公式ウェブサイ�
 - **言語**: TypeScript
 - **スタイリング**: Tailwind CSS v4
 - **ビルドツール**: Vite 7
+- **バックエンド**: Firebase (Firestore, Storage)
 - **開発環境**: Node.js
+
+## 🔥 Firebase セットアップ
+
+### 1. Firebaseプロジェクトの作成
+
+1. [Firebase Console](https://console.firebase.google.com/) にアクセス
+2. 新しいプロジェクトを作成
+3. Firestoreデータベースを有効化（本番モード推奨）
+4. Firebase Storageを有効化
+
+### 2. 環境変数の設定
+
+`.env.example` をコピーして `.env` ファイルを作成：
+
+```bash
+cp .env.example .env
+```
+
+Firebaseコンソールから取得した設定値を `.env` に記入：
+
+```env
+VITE_FIREBASE_API_KEY=your-api-key
+VITE_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your-project-id
+VITE_FIREBASE_STORAGE_BUCKET=your-project.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=123456789
+VITE_FIREBASE_APP_ID=1:123456789:web:abcdef
+```
+
+### 3. Firestoreセキュリティルール
+
+Firestoreのルールを以下のように設定（Firebase Console > Firestore > ルール）：
+
+```javascript
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 活動報告は誰でも読める、書き込みは認証済みのみ
+    match /activities/{activityId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}
+```
+
+### 4. Storageセキュリティルール
+
+Storageのルールを設定（Firebase Console > Storage > ルール）：
+
+```javascript
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /activities/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}
+```
 
 ## 📱 レスポンシブデザイン
 

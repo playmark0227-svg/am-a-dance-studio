@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
+  // ホバー状態管理
+  const [isRikoHovered, setIsRikoHovered] = useState(false);
+  const [isHimariHovered, setIsHimariHovered] = useState(false);
+
   return (
     <section id="home" className="bg-white">
       {/* ヒーロー画像表示（スマホとデスクトップで画像を切り替え） */}
@@ -77,16 +81,31 @@ const Hero: React.FC = () => {
             <div className="bg-white border-2 border-primary-200 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
               <div className="grid md:grid-cols-5 gap-0">
                 {/* 写真エリア */}
-                <div className="md:col-span-2 relative">
-                  <div className="aspect-[3/4] md:aspect-auto md:h-full">
+                <div 
+                  className="md:col-span-2 relative cursor-pointer"
+                  onMouseEnter={() => setIsRikoHovered(true)}
+                  onMouseLeave={() => setIsRikoHovered(false)}
+                >
+                  <div className="aspect-[3/4] md:aspect-auto md:h-full relative overflow-hidden">
+                    {/* 1枚目の写真 */}
                     <img 
                       src="/instructor-riko.jpg" 
                       alt="インストラクター RIKO"
-                      className="w-full h-full object-cover"
+                      className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-300 ${
+                        isRikoHovered ? 'opacity-0' : 'opacity-100'
+                      }`}
+                    />
+                    {/* 2枚目の写真（ホバー時） */}
+                    <img 
+                      src="/instructor-riko-2.jpg" 
+                      alt="インストラクター RIKO"
+                      className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-300 ${
+                        isRikoHovered ? 'opacity-100' : 'opacity-0'
+                      }`}
                     />
                   </div>
                   {/* 写真上の名前バッジ */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 pointer-events-none">
                     <div className="bg-gradient-to-r from-neonpink-400 to-neonpink-500 rounded-xl shadow-lg px-6 py-3 inline-block">
                       <h3 className="text-3xl md:text-4xl font-bold text-white">
                         RIKO
@@ -159,16 +178,31 @@ const Hero: React.FC = () => {
             <div className="bg-white border-2 border-primary-200 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
               <div className="grid md:grid-cols-5 gap-0">
                 {/* 写真エリア */}
-                <div className="md:col-span-2 relative">
-                  <div className="aspect-[3/4] md:aspect-auto md:h-full">
+                <div 
+                  className="md:col-span-2 relative cursor-pointer"
+                  onMouseEnter={() => setIsHimariHovered(true)}
+                  onMouseLeave={() => setIsHimariHovered(false)}
+                >
+                  <div className="aspect-[3/4] md:aspect-auto md:h-full relative overflow-hidden">
+                    {/* 1枚目の写真 */}
                     <img 
                       src="/instructor-2.jpg" 
-                      alt="インストラクター"
-                      className="w-full h-full object-cover"
+                      alt="インストラクター HIMARI"
+                      className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-300 ${
+                        isHimariHovered ? 'opacity-0' : 'opacity-100'
+                      }`}
+                    />
+                    {/* 2枚目の写真（ホバー時） - 画像が提供されたら差し替え */}
+                    <img 
+                      src="/instructor-2.jpg" 
+                      alt="インストラクター HIMARI"
+                      className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-300 ${
+                        isHimariHovered ? 'opacity-100' : 'opacity-0'
+                      }`}
                     />
                   </div>
                   {/* 写真上の名前バッジ */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 pointer-events-none">
                     <div className="bg-gradient-to-r from-purple-400 to-purple-500 rounded-xl shadow-lg px-6 py-3 inline-block">
                       <h3 className="text-3xl md:text-4xl font-bold text-white">
                         HIMARI

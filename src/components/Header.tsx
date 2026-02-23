@@ -63,6 +63,14 @@ const Header: React.FC = () => {
             </li>
             <li>
               <Link
+                to="/faq"
+                className="text-accent-800 hover:text-accent-900 transition-colors font-medium"
+              >
+                よくある質問
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/contact"
                 className="bg-neonpink-500 text-white px-6 py-2 rounded-md hover:bg-neonpink-600 transition-colors font-medium shadow-md"
               >
@@ -148,6 +156,15 @@ const Header: React.FC = () => {
                   className="block w-full text-center text-accent-800 hover:text-accent-900 transition-colors font-medium py-2"
                 >
                   活動報告
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/faq"
+                  onClick={closeMenu}
+                  className="block w-full text-center text-accent-800 hover:text-accent-900 transition-colors font-medium py-2"
+                >
+                  よくある質問
                 </Link>
               </li>
               <li>

@@ -56,3 +56,10 @@ export interface ActivityReport {
   images: string[];
   likes?: number;
 }
+
+// FAQ（よくある質問）の型定義
+export interface FAQItem {
+  id: string;
+  question: string;
+  answer: string;
+}

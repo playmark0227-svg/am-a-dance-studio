@@ -8,6 +8,7 @@ import ClassesPage from './pages/ClassesPage';
 import SchedulePage from './pages/SchedulePage';
 import PricePage from './pages/PricePage';
 import ActivitiesPage from './pages/ActivitiesPage';
+import FAQPage from './pages/FAQPage';
 import ContactPage from './pages/ContactPage';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
@@ -51,6 +52,13 @@ function App() {
             <div className="min-h-screen">
               <Header />
               <main><ActivitiesPage /></main>
+              <Footer />
+            </div>
+          } />
+          <Route path="/faq" element={
+            <div className="min-h-screen">
+              <Header />
+              <main><FAQPage /></main>
               <Footer />
             </div>
           } />

@@ -186,15 +186,15 @@ const Hero: React.FC = () => {
                   <div className="aspect-[3/4] md:aspect-auto md:h-full relative overflow-hidden">
                     {/* 1枚目の写真 */}
                     <img 
-                      src="/instructor-2.jpg" 
+                      src="/instructor-himari-1.jpg" 
                       alt="インストラクター HIMARI"
                       className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-300 ${
                         isHimariHovered ? 'opacity-0' : 'opacity-100'
                       }`}
                     />
-                    {/* 2枚目の写真（ホバー時） - 画像が提供されたら差し替え */}
+                    {/* 2枚目の写真（ホバー時） */}
                     <img 
-                      src="/instructor-2.jpg" 
+                      src="/instructor-himari-2.jpg" 
                       alt="インストラクター HIMARI"
                       className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-300 ${
                         isHimariHovered ? 'opacity-100' : 'opacity-0'

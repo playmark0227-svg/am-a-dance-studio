@@ -191,6 +191,7 @@ const Hero: React.FC = () => {
                       className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-300 ${
                         isHimariHovered ? 'opacity-0' : 'opacity-100'
                       }`}
+                      style={{ objectPosition: 'center 30%' }}
                     />
                     {/* 2枚目の写真（ホバー時） */}
                     <img 
@@ -199,6 +200,7 @@ const Hero: React.FC = () => {
                       className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-300 ${
                         isHimariHovered ? 'opacity-100' : 'opacity-0'
                       }`}
+                      style={{ objectPosition: 'center 30%' }}
                     />
                   </div>
                   {/* 写真上の名前バッジ */}

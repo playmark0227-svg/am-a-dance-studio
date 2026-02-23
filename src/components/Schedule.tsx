@@ -138,7 +138,7 @@ const Schedule: React.FC = () => {
             <div>
               <h4 className="font-bold text-gray-900 mb-2">スケジュールについて</h4>
               <ul className="text-sm text-gray-800 space-y-1">
-                <li>• 木曜日17:30-18:30の枠は、週によってクラスが変わります</li>
+                <li>• 木曜日17:30-18:30の枠は、隔週でクラスが変わります</li>
                 <li>• 第1・3週：CHEER DANCE skill up（17:30-18:30）</li>
                 <li>• 第2・4週：ゆったりYOGA（17:45-18:15）</li>
                 <li>• 祝日や年末年始はスケジュールが変更になる場合があります</li>

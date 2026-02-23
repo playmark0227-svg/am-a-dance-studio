@@ -92,7 +92,7 @@ const Hero: React.FC = () => {
                         RIKO
                       </h3>
                     </div>
-                    <p className="text-white font-bold text-lg mt-2">主宰・チーフインストラクター</p>
+                    <p className="text-white font-bold text-lg mt-2">代表</p>
                   </div>
                 </div>
 
@@ -194,10 +194,6 @@ const Hero: React.FC = () => {
                         </div>
                         <div className="flex items-start space-x-3 bg-gradient-to-r from-purple-50 to-transparent p-4 rounded-lg border-l-4 border-purple-400">
                           <span className="text-purple-500 mt-1 font-bold text-xl flex-shrink-0">⭐</span>
-                          <p className="font-medium text-lg">ダンスの魅力に魅了され、卒業後もダンスを続ける</p>
-                        </div>
-                        <div className="flex items-start space-x-3 bg-gradient-to-r from-purple-50 to-transparent p-4 rounded-lg border-l-4 border-purple-400">
-                          <span className="text-purple-500 mt-1 font-bold text-xl flex-shrink-0">⭐</span>
                           <p className="font-medium text-lg">2024年よりam a DANCE STUDIOでインストラクターとして活動開始</p>
                         </div>
                         <div className="flex items-start space-x-3 bg-gradient-to-r from-purple-50 to-transparent p-4 rounded-lg border-l-4 border-purple-400">
@@ -215,11 +211,7 @@ const Hero: React.FC = () => {
                       </h4>
                       <div className="bg-gradient-to-br from-purple-50 to-primary-50 p-6 rounded-xl border-2 border-purple-200">
                         <p className="text-accent-700 leading-relaxed text-lg">
-                          学生の頃からこのスタジオでダンスを学び、その楽しさと素晴らしさを知りました。
-                          卒業後、「自分もダンスの楽しさを多くの人に伝えたい」という強い思いから、
-                          インストラクターとしてam a DANCE STUDIOで働くことを決意しました。
-                          ダンスを通じて、笑顔と自信を持てる仲間を増やしていきたいと思っています。
-                          一緒に楽しく踊りましょう！
+                          ※HIMARIさんからのメッセージを募集中
                         </p>
                       </div>
                     </div>

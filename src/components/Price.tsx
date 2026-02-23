@@ -137,6 +137,46 @@ const Price: React.FC = () => {
                   />
                 </svg>
                 <p>
+                  <span className="font-semibold">お支払い方法：</span>
+                  口座振替もしくはクレジットカードからお選びいただけます
+                </p>
+              </div>
+
+              <div className="flex items-start space-x-3">
+                <svg
+                  className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <p>
+                  <span className="font-semibold">年間管理費：</span>
+                  2年目以降、年間管理費3,000円がかかります
+                </p>
+              </div>
+
+              <div className="flex items-start space-x-3">
+                <svg
+                  className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <p>
                   <span className="font-semibold">その他：</span>
                   イベント参加費や衣装代などが別途必要な場合があります
                 </p>

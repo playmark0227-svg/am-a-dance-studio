@@ -78,7 +78,7 @@ const Price: React.FC = () => {
                 </svg>
                 <p>
                   <span className="font-semibold">月謝制：</span>
-                  毎月の月謝は前月末までにお支払いください
+                  お支払いは口座振替もしくはクレジットカードよりお選びいただけます
                 </p>
               </div>
 
@@ -178,7 +178,7 @@ const Price: React.FC = () => {
                 </svg>
                 <p>
                   <span className="font-semibold">その他：</span>
-                  イベント参加費や衣装代などが別途必要な場合があります
+                  イベント参加費や衣装代などが別途必要です
                 </p>
               </div>
             </div>

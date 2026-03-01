@@ -3,6 +3,10 @@ import React, { useState } from 'react';
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
+    furigana: '',
+    age: '',
+    danceExperience: 'none',
+    danceYears: '',
     email: '',
     phone: '',
     className: '',
@@ -147,6 +151,92 @@ const Contact: React.FC = () => {
                   className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-600 focus:outline-none transition-colors"
                   placeholder="山田 太郎"
                 />
+              </div>
+
+              <div>
+                <label htmlFor="furigana" className="block text-sm font-semibold text-gray-700 mb-2">
+                  お名前（ふりがな） <span className="text-red-600">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="furigana"
+                  name="furigana"
+                  required
+                  value={formData.furigana}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-600 focus:outline-none transition-colors"
+                  placeholder="やまだ たろう"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="age" className="block text-sm font-semibold text-gray-700 mb-2">
+                  年齢 <span className="text-red-600">*</span>
+                </label>
+                <input
+                  type="number"
+                  id="age"
+                  name="age"
+                  required
+                  min="1"
+                  max="120"
+                  value={formData.age}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-600 focus:outline-none transition-colors"
+                  placeholder="例: 25"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  ダンス経験 <span className="text-red-600">*</span>
+                </label>
+                <div className="space-y-3">
+                  <label className="flex items-center space-x-3 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="danceExperience"
+                      value="none"
+                      checked={formData.danceExperience === 'none'}
+                      onChange={handleChange}
+                      className="w-5 h-5 text-primary-600 focus:ring-primary-500"
+                    />
+                    <span className="text-gray-700">無し</span>
+                  </label>
+                  <label className="flex items-center space-x-3 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="danceExperience"
+                      value="yes"
+                      checked={formData.danceExperience === 'yes'}
+                      onChange={handleChange}
+                      className="w-5 h-5 text-primary-600 focus:ring-primary-500"
+                    />
+                    <span className="text-gray-700">有り</span>
+                  </label>
+                  {formData.danceExperience === 'yes' && (
+                    <div className="ml-8 mt-3">
+                      <label htmlFor="danceYears" className="block text-sm font-medium text-gray-700 mb-2">
+                        ダンス経験年数
+                      </label>
+                      <div className="flex items-center space-x-2">
+                        <input
+                          type="number"
+                          id="danceYears"
+                          name="danceYears"
+                          min="0"
+                          max="100"
+                          step="0.5"
+                          value={formData.danceYears}
+                          onChange={handleChange}
+                          className="w-32 px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-600 focus:outline-none transition-colors"
+                          placeholder="例: 3"
+                        />
+                        <span className="text-gray-700">年間</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div>

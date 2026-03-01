@@ -7,6 +7,7 @@ export interface ClassInfo {
   description: string;
   duration?: string;
   features?: string[];
+  image?: string;
 }
 
 // スケジュール情報の型定義

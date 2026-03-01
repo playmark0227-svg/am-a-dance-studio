@@ -8,6 +8,7 @@ export const classesData: ClassInfo[] = [
     targetAge: '4歳〜',
     description: 'キラキラのポンポンを持って楽しく元気に踊ります！初めての習い事にオススメ',
     features: ['ご挨拶、礼儀', '正しい姿勢', 'リズム感の養成'],
+    image: '/classes/cheer-dance-general.jpg',
   },
   {
     id: 'cheer-dance-skillup',
@@ -16,6 +17,7 @@ export const classesData: ClassInfo[] = [
     targetAge: '経験者向け',
     description: 'キックやターン、ジャンプなどのテクニックにも挑戦し、パフォーマンス力を磨くクラスです！',
     features: ['パフォーマンス力向上', 'チームワークの向上', 'テクニックの習得'],
+    image: '/classes/cheer-dance-skillup.jpg',
   },
   {
     id: 'jazz',
@@ -32,6 +34,7 @@ export const classesData: ClassInfo[] = [
     targetAge: '4歳〜',
     description: 'バトンを使って楽しく踊ります！バトントワリングの基礎から丁寧に指導します。初めての方でも安心して始められます。',
     features: ['基本技術の習得', '集中力の向上', '個人技術の磨き'],
+    image: '/classes/baton-beginner.jpg',
   },
   {
     id: 'baton',
@@ -40,6 +43,7 @@ export const classesData: ClassInfo[] = [
     targetAge: '経験者向け',
     description: 'バトントワリングの技術を本格的に学ぶクラスです。全国大会出場経験者による指導で、高い技術を目指します。',
     features: ['バトンテクニックの習得', 'ボディワークの向上', '個性を活かした指導'],
+    image: '/classes/baton.jpg',
   },
   {
     id: 'kpop-beginner',
@@ -48,6 +52,7 @@ export const classesData: ClassInfo[] = [
     targetAge: '初心者向け、小3〜',
     description: '人気のK-POPダンスを基礎から学べるクラスです。楽しみながらダンスの基本を身につけます。',
     features: ['人気曲で踊れる', '基礎から学べる', '仲間と楽しめる'],
+    image: '/classes/kpop-beginner.jpg',
   },
   {
     id: 'kpop',
@@ -56,6 +61,7 @@ export const classesData: ClassInfo[] = [
     targetAge: '小学生〜高校生',
     description: '最新のK-POPダンスを本格的に学ぶクラスです。カバーダンスから創作まで幅広く挑戦できます。',
     features: ['最新楽曲対応', '振付完コピ', 'グループパフォーマンス'],
+    image: '/classes/kpop.jpg',
   },
   {
     id: 'girls-beginner',
@@ -64,6 +70,7 @@ export const classesData: ClassInfo[] = [
     targetAge: '初心者向け、小1〜',
     description: 'ガールズヒップホップの基礎を楽しく学べるクラスです。かわいくかっこよく踊りたい方におすすめです。',
     features: ['基本ステップ習得', 'リズムトレーニング', '表現力の基礎'],
+    image: '/classes/girls-beginner.jpg',
   },
   {
     id: 'girls',
@@ -72,6 +79,7 @@ export const classesData: ClassInfo[] = [
     targetAge: '小学生〜高校生',
     description: 'ガールズヒップホップを本格的に学ぶクラスです。トレンドを取り入れた振付で、自分らしく表現する力を育みます。',
     features: ['トレンド振付', '個性を活かす', 'ステージ出演'],
+    image: '/classes/girls.jpg',
   },
   {
     id: 'over20',

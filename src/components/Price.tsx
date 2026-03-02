@@ -7,7 +7,7 @@ const Price: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-5xl font-bold text-accent-800 mb-4">料金システム</h2>
-          <p className="text-xl text-accent-600">月謝制でわかりやすい料金設定</p>
+          <p className="text-xl text-accent-600">わかりやすい料金設定</p>
           <div className="w-24 h-1 bg-neonpink-500 mx-auto mt-6 rounded-full"></div>
         </div>
 

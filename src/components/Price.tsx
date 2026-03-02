@@ -77,26 +77,6 @@ const Price: React.FC = () => {
                   />
                 </svg>
                 <p>
-                  <span className="font-semibold">月謝制：</span>
-                  お支払いは口座振替もしくはクレジットカードよりお選びいただけます
-                </p>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <svg
-                  className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <p>
                   <span className="font-semibold">入会金：</span>
                   初回のみ入会金が必要です（詳細はお問い合わせください）
                 </p>

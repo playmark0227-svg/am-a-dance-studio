@@ -113,7 +113,7 @@ const Contact: React.FC = () => {
 
             {/* アクセス情報 */}
             <div className="bg-secondary-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">スタジオアクセス</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">レッスン会場</h3>
               <div className="space-y-4 text-gray-700">
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">あすぱる</h4>

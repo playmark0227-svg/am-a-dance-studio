@@ -230,7 +230,7 @@ const Hero: React.FC = () => {
                         </div>
                         <div className="flex items-start space-x-3 bg-gradient-to-r from-purple-50 to-transparent p-4 rounded-lg border-l-4 border-purple-400">
                           <span className="text-purple-500 mt-1 font-bold text-xl flex-shrink-0">⭐</span>
-                          <p className="font-medium text-lg">2024年よりam a DANCE STUDIOでインストラクターとして活動開始</p>
+                          <p className="font-medium text-lg">【2026年】からインストラクターとして活動開始です！</p>
                         </div>
                         <div className="flex items-start space-x-3 bg-gradient-to-r from-purple-50 to-transparent p-4 rounded-lg border-l-4 border-purple-400">
                           <span className="text-purple-500 mt-1 font-bold text-xl flex-shrink-0">⭐</span>
